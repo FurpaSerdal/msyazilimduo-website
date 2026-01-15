@@ -1,16 +1,18 @@
 "use client";
 
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Code2, Mail, Phone, MapPin, CheckCircle, Users, Clock, Shield, 
   Sparkles, ArrowRight, Star, Globe, Zap, Cloud, Database, 
   Smartphone, Server, Lock, BarChart, Settings, Award, Target, 
-  PieChart, MailCheck, PhoneCall, MessageCircle, Send 
+  PieChart, MailCheck, PhoneCall, MessageCircle, Send, X, AlertCircle
 } from 'lucide-react';
 
 export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [whatsappMessage, setWhatsappMessage] = useState('');
+  const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
   async function submit(e: any) {
     e.preventDefault();
@@ -34,10 +36,18 @@ export default function Home() {
         throw new Error("Email gönderilemedi");
       }
 
-      alert("Mesajınız gönderildi! En kısa sürede dönüş yapacağız.");
+      setNotification({
+        type: 'success',
+        message: "Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz."
+      });
       form.reset();
+      setTimeout(() => setNotification(null), 5000);
     } catch (error) {
-      alert("Bir hata oluştu, lütfen tekrar deneyin!");
+      setNotification({
+        type: 'error',
+        message: "Bir hata oluştu, lütfen tekrar deneyin!"
+      });
+      setTimeout(() => setNotification(null), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -46,6 +56,47 @@ export default function Home() {
   const sendWhatsAppMessage = () => {
     const message = whatsappMessage || 'Merhaba, MSYazılımDuo hakkında bilgi almak istiyorum.';
     const phoneNumber = '905355297508';
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  };
+
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-white via-gray-50/20 to-white relative overflow-hidden">
+      {/* Notification Toast */}
+      <AnimatePresence>
+        {notification && (
+          <motion.div
+            initial={{ opacity: 0, y: -20, x: 0 }}
+            animate={{ opacity: 1, y: 0, x: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-8 right-8 z-[100]"
+          >
+            <div className={`flex items-start gap-4 px-6 py-4 rounded-xl shadow-2xl border ${
+              notification.type === 'success'
+                ? 'bg-green-50 border-green-200'
+                : 'bg-red-50 border-red-200'
+            }`}>
+              <div className={notification.type === 'success' ? 'text-green-600' : 'text-red-600'}>
+                {notification.type === 'success' ? (
+                  <CheckCircle className="w-6 h-6" />
+                ) : (
+                  <AlertCircle className="w-6 h-6" />
+                )}
+              </div>
+              <div className="flex-1">
+                <p className={notification.type === 'success' ? 'text-green-900 font-medium' : 'text-red-900 font-medium'}>
+                  {notification.message}
+                </p>
+              </div>
+              <button
+                onClick={() => setNotification(null)}
+                className={notification.type === 'success' ? 'text-green-600 hover:text-green-800' : 'text-red-600 hover:text-red-800'}
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
   };
