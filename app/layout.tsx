@@ -26,10 +26,11 @@ export const metadata: Metadata = {
     description: "Modern teknolojilerle ölçeklenebilir, güvenli ve yüksek performanslı yazılım çözümleri. Next.js, React, Node.js uzmanı.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
         alt: "MSYazılımDuo Yazılım Stüdyosu",
+        type: "image/svg+xml",
       },
     ],
   },
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MSYazılımDuo | Profesyonel Web ve Yazılım Geliştirme",
     description: "Modern teknolojilerle ölçeklenebilir, güvenli ve yüksek performanslı yazılım çözümleri.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.svg"],
     creator: "@msyazilimduo",
   },
   robots: {
@@ -53,12 +54,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon.ico" },
-      { url: "/icon.png", type: "image/png", sizes: "32x32" },
     ],
     apple: [
       { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
     ],
+    shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
   verification: {
