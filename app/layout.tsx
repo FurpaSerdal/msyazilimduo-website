@@ -7,8 +7,8 @@ export const metadata: Metadata = {
     default: "MSYazılımDuo | Profesyonel Web ve Yazılım Geliştirme Hizmetleri",
     template: "%s | MSYazılımDuo"
   },
-  description: "Bursa merkezli yazılım stüdyosu. Next.js, React, Node.js ile kurumsal web uygulamaları, mobil uygulama geliştirme, e-ticaret çözümleri ve cloud hizmetleri. 20+ başarılı proje deneyimi.",
-  keywords: ["web geliştirme", "yazılım geliştirme", "mobil uygulama", "e-ticaret", "nextjs", "react", "bursa yazılım", "freelance yazılımcı", "kurumsal web tasarım", "full-stack developer", "react native", "node.js"],
+  description: "Bursa'da yazılım geliştirme hizmetleri. Next.js, React, Node.js ile kurumsal web uygulamaları, mobil uygulama, e-ticaret ve cloud çözümleri. 20+ başarılı proje.",
+  keywords: ["bursa yazılım", "bursa web tasarım", "yazılım geliştirme bursa", "web uygulama bursa", "mobil uygulama geliştirme", "e-ticaret çözümleri", "nextjs react node.js", "fullstack developer", "digital çözümler"],
   authors: [{ name: "MSYazılımDuo", url: "https://msyazilimduo.com" }],
   creator: "MSYazılımDuo",
   publisher: "MSYazılımDuo",
