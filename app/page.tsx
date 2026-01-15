@@ -88,6 +88,34 @@ export default function Home() {
     setWhatsappMessage('');
   };
 
+  // Add JSON-LD to head on client side to avoid hydration mismatch
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "MSYazılımDuo",
+      "description": "Bursa'da yazılım geliştirme hizmetleri",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bursa",
+        "addressRegion": "TR-16",
+        "addressCountry": "TR"
+      },
+      "areaServed": "TR",
+      "telephone": "+90-535-529-7508",
+      "url": "https://msyazilimduo.com"
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
   // Bursa için özel içerik
   const bursaContent = {
     title: "Bursa'nın Önde Gelen Yazılım Geliştirme Ekibi",
@@ -101,41 +129,7 @@ export default function Home() {
   };
 
   return (
-    <>
-      {/* SEO Meta Tags */}
-      <head>
-        <title>MSYazılımDuo | Bursa Yazılım Geliştirme - Profesyonel Yazılım Çözümleri</title>
-        <meta name="description" content="Bursa'da yazılım geliştirme hizmeti. Web sitesi, mobil uygulama, e-ticaret ve kurumsal yazılım çözümleri. Uzman yazılım ekibi ile dijital dönüşüm." />
-        <meta name="keywords" content="bursa yazılım, bursa web tasarım, bursa mobil uygulama, bursa e-ticaret, yazılım geliştirme bursa, msyazilimduo" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta property="og:title" content="MSYazılımDuo | Bursa Yazılım Geliştirme" />
-        <meta property="og:description" content="Bursa'nın önde gelen yazılım geliştirme ekibi. Profesyonel dijital çözümler." />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://msyazilimduo.com" />
-        <meta name="geo.region" content="TR-16" />
-        <meta name="geo.placename" content="Bursa" />
-        <meta name="geo.position" content="40.1825;29.0667" />
-        <meta name="ICBM" content="40.1825, 29.0667" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            "name": "MSYazılımDuo",
-            "description": "Bursa'da yazılım geliştirme hizmetleri",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Bursa",
-              "addressRegion": "TR-16",
-              "addressCountry": "TR"
-            },
-            "telephone": "+905355297508",
-            "openingHours": "Mo-Fr 09:00-18:00",
-            "url": "https://msyazilimduo.com"
-          })}
-        </script>
-      </head>
-
-      <main className="min-h-screen bg-gradient-to-b from-white via-gray-50/20 to-white relative overflow-hidden">
+    <main className="min-h-screen bg-gradient-to-b from-white via-gray-50/20 to-white relative overflow-hidden" suppressHydrationWarning>
         {/* Notification Toast */}
         <AnimatePresence>
           {notification && (
@@ -833,6 +827,5 @@ export default function Home() {
           </div>
         </footer>
       </main>
-    </>
-  );
+    );
 }
