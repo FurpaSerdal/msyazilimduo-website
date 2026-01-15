@@ -1,0 +1,7 @@
+# robots.txt for MSYazılımDuo
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://msyazilimduo.com/sitemap.xml
