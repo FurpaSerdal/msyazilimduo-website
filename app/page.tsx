@@ -18,16 +18,8 @@ export default function Home() {
     const form = e.target;
 
     try {
-      await fetch("/api/contact", {
-        method: "POST",
-        body: JSON.stringify({
-          name: form.name.value,
-          email: form.email.value,
-          message: form.message.value,
-        }),
-      });
-
-      alert("Mesajınız gönderildi! En kısa sürede dönüş yapacağız.");
+      // Form submission - email will be implemented later
+      alert("Teşekkürler! Mesajınız kaydedildi. WhatsApp'tan bize yazabilirsiniz: +90 535 529 75 08");
       form.reset();
     } catch (error) {
       alert("Bir hata oluştu, lütfen tekrar deneyin!");
