@@ -345,16 +345,16 @@ export default function Home() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-              Bursa'da
-              <br />
               <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Yazılım Çözümleri
+                Bursa Yazılım Firması
               </span>
+              <br />
+              Profesyonel Web ve Mobil Uygulama Geliştirme
             </h1>
 
             <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto">
-              Bursa'da faaliyet gösteren işletmeler için özel yazılım geliştirme çözümleri. 
-              Modern teknolojilerle dijital dönüşümünüzü gerçekleştiriyoruz.
+              Bursa yazılım şirketi MSYazılımDuo, modern web sitesi, mobil uygulama ve e-ticaret çözümleri sunar. 
+              Bursa'nın en deneyimli yazılım geliştirme ekibi ile işletmenizi dijitalleştirin.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">

@@ -4,11 +4,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   metadataBase: new URL('https://msyazilimduo.com'),
   title: {
-    default: "MSYazılımDuo | Profesyonel Web ve Yazılım Geliştirme Hizmetleri",
-    template: "%s | MSYazılımDuo"
+    default: "Bursa Yazılım | MSYazılımDuo - Profesyonel Web ve Mobil Uygulama Geliştirme",
+    template: "%s | MSYazılımDuo - Bursa Yazılım"
   },
-  description: "Bursa'da yazılım geliştirme hizmetleri. Next.js, React, Node.js ile kurumsal web uygulamaları, mobil uygulama, e-ticaret ve cloud çözümleri. 20+ başarılı proje.",
-  keywords: ["bursa yazılım", "bursa web tasarım", "yazılım geliştirme bursa", "web uygulama bursa", "mobil uygulama geliştirme", "e-ticaret çözümleri", "nextjs react node.js", "fullstack developer", "digital çözümler"],
+  description: "Bursa yazılım firması MSYazılımDuo ile profesyonel web sitesi, mobil uygulama ve yazılım geliştirme hizmetleri. Bursa'nın en iyi yazılım şirketi. Next.js, React, Node.js ile kurumsal çözümler. 7/24 destek, uygun fiyat, hızlı teslimat.",
+  keywords: ["bursa yazılım", "bursa yazılım firması", "bursa yazılım şirketi", "bursa web tasarım", "bursa web sitesi", "yazılım geliştirme bursa", "web uygulama bursa", "mobil uygulama bursa", "bursa e-ticaret", "bursa dijital ajans", "nextjs bursa", "react bursa", "web tasarım bursa", "yazılım hizmeti bursa"],
   authors: [{ name: "MSYazılımDuo", url: "https://msyazilimduo.com" }],
   creator: "MSYazılımDuo",
   publisher: "MSYazılımDuo",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     url: "https://msyazilimduo.com",
-    siteName: "MSYazılımDuo Yazılım Stüdyosu",
-    title: "MSYazılımDuo | Profesyonel Web ve Yazılım Geliştirme",
-    description: "Modern teknolojilerle ölçeklenebilir, güvenli ve yüksek performanslı yazılım çözümleri. Next.js, React, Node.js uzmanı.",
+    siteName: "MSYazılımDuo - Bursa Yazılım Firması",
+    title: "Bursa Yazılım | MSYazılımDuo - Web Sitesi ve Mobil Uygulama",
+    description: "Bursa'nın lider yazılım şirketi. Profesyonel web sitesi, mobil uygulama, e-ticaret ve kurumsal yazılım geliştirme. Modern teknolojilerle ölçeklenebilir çözümler.",
     images: [
       {
         url: "/og-image.svg",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MSYazılımDuo | Profesyonel Web ve Yazılım Geliştirme",
-    description: "Modern teknolojilerle ölçeklenebilir, güvenli ve yüksek performanslı yazılım çözümleri.",
+    title: "Bursa Yazılım | MSYazılımDuo - Web ve Mobil Uygulama Geliştirme",
+    description: "Bursa'da profesyonel yazılım geliştirme hizmetleri. Web sitesi, mobil uygulama, e-ticaret çözümleri. Uygun fiyat, hızlı teslimat.",
     images: ["/og-image.svg"],
     creator: "@msyazilimduo",
   },
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   verification: {
-    google: "google-site-verification-code",
+    google: "google82654c7cb7df78c1",
   },
   alternates: {
     canonical: "https://msyazilimduo.com",
