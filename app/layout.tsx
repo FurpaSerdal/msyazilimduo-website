@@ -51,6 +51,12 @@ export const metadata: Metadata = {
         height: 630,
         alt: "MSYazılımDuo Yazılım Firması",
       },
+      {
+        url: "/logo.png",
+        width: 225,
+        height: 225,
+        alt: "MSYazılımDuo Logo",
+      },
     ],
   },
   twitter: {
