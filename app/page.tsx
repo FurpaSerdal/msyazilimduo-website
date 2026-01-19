@@ -130,9 +130,10 @@ export default function Home() {
 
   // Add JSON-LD for SEO
   useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.innerHTML = JSON.stringify({
+    // Organization Schema
+    const orgScript = document.createElement('script');
+    orgScript.type = 'application/ld+json';
+    orgScript.innerHTML = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "MSYazılımDuo",
@@ -171,11 +172,73 @@ export default function Home() {
         "https://linkedin.com/company/msyazilimduo"
       ]
     });
-    document.head.appendChild(script);
+    document.head.appendChild(orgScript);
+
+    // FAQ Schema
+    const faqScript = document.createElement('script');
+    faqScript.type = 'application/ld+json';
+    faqScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Bursa yazılım firması olarak hangi hizmetleri sunuyorsunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MSYazılımDuo olarak Bursa yazılım geliştirme, Bursa web tasarım, mobil uygulama geliştirme, e-ticaret çözümleri ve özel yazılım projeleri sunuyoruz. Bursa'daki işletmelere yerel destek ve profesyonel çözümler sağlıyoruz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bursa web sitesi maliyetleri ne kadar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bursa web sitesi fiyatları projenin kapsamına göre değişir. Basit kurumsal web siteleri için uygun fiyatlarla başlıyoruz. Bursa web tasarım hizmetlerimiz için ücretsiz danışmanlık alabilirsiniz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bursa yazılım geliştirme süreci nasıl işler?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bursa yazılım geliştirme sürecimiz 4 aşamadan oluşur: İhtiyaç analizi, tasarım & geliştirme, test & iyileştirme, teslim & destek. Bursa'daki müşterilerimizle yüz yüze görüşerek projeleri yönetiyoruz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bursa'da mobil uygulama geliştirme yapıyor musunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, Bursa yazılım ekibimiz iOS ve Android için mobil uygulama geliştirme hizmeti sunuyor. React Native ve Flutter teknolojileriyle çapraz platform uygulamalar geliştiriyoruz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bursa yazılım firmanızın referansları nelerdir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bursa'da 20+ başarılı proje tamamladık. Kurumsal web siteleri, e-ticaret platformları ve özel yazılım projeleri geliştirdik. Bursa yazılım sektöründe güvenilir referanslarımız var."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bursa web tasarım projeleri ne kadar sürede tamamlanır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bursa web tasarım projelerinin süresi projenin kapsamına bağlı. Basit web siteleri 2-3 hafta, e-ticaret siteleri 4-8 hafta, özel yazılım projeleri ise 2-6 ay sürebilir. Bursa yazılım ekibimiz hızlı teslimat yapar."
+          }
+        }
+      ]
+    });
+    document.head.appendChild(faqScript);
 
     return () => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
+      if (orgScript.parentNode) {
+        orgScript.parentNode.removeChild(orgScript);
+      }
+      if (faqScript.parentNode) {
+        faqScript.parentNode.removeChild(faqScript);
       }
     };
   }, []);
@@ -456,10 +519,10 @@ export default function Home() {
             className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900 leading-tight"
           >
             <span className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text text-transparent">
-              Bursa'nın <span className="inline-block animate-float">Öncü</span>
+              Bursa Yazılım <span className="inline-block animate-float">Firması</span>
             </span>
             <br />
-            <span className="text-3xl sm:text-4xl md:text-5xl">Yazılım Geliştirme Ekibi</span>
+            <span className="text-3xl sm:text-4xl md:text-5xl">Profesyonel Yazılım Geliştirme</span>
           </motion.h1>
 
           <motion.p
@@ -468,8 +531,8 @@ export default function Home() {
             transition={{ delay: 0.1 }}
             className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto"
           >
-            Bursa'da web sitesi, mobil uygulama ve e-ticaret çözümleri konusunda uzmanlaşmış yazılım şirketi.
-            <span className="text-blue-600 font-medium"> Yerel tecrübe, global kalite.</span>
+            <strong>Bursa yazılım</strong> hizmetlerinde öncü firmamız, web sitesi, mobil uygulama ve e-ticaret çözümleri sunuyor.
+            <span className="text-blue-600 font-medium"> Bursa'nın en iyi yazılım şirketi.</span>
           </motion.p>
 
           <motion.div
@@ -532,9 +595,9 @@ export default function Home() {
               <Building className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
             </div>
             <div className="flex-1">
-              <h3 className="font-bold text-xl text-gray-900 mb-3">Bursa'da Yazılım Çözümleri</h3>
+              <h2 className="font-bold text-xl text-gray-900 mb-3">Bursa Yazılım Hizmetleri</h2>
               <p className="text-gray-600 mb-4">
-                Bursa'daki işletmeler için özel geliştirilmiş yazılım hizmetleri.
+                <strong>Bursa yazılım</strong> sektöründe uzman ekibimiz, işletmeler için özel geliştirilmiş yazılım hizmetleri sunuyor.
                 Yerel tecrübemizle şehrinizin ihtiyaçlarını anlıyor, dijital dönüşümünüzde yanınızdayız.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -570,9 +633,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Neden Bizi Tercih Etmelisiniz?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa Yazılım Firması Olarak Avantajlarımız</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Bursa merkezli uzman ekibimiz, yerel işletmelere özel çözümler sunuyor.
+              <strong>Bursa yazılım geliştirme</strong> alanında uzman ekibimiz, yerel işletmelere profesyonel çözümler sunuyor.
             </p>
           </motion.div>
 
@@ -636,9 +699,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa için Çözümlerimiz</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa Yazılım Geliştirme Hizmetleri</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Bursa'daki işletmelere özel geliştirdiğimiz yazılım çözümleri
+              <strong>Bursa web</strong> tasarım ve yazılım geliştirme çözümleri - işletmenize özel profesyonel hizmetler
             </p>
           </motion.div>
 
@@ -646,24 +709,24 @@ export default function Home() {
             {[
               {
                 icon: <Globe className="w-6 h-6 text-white" />,
-                title: "Kurumsal Web",
-                description: "Bursa işletmeleri için profesyonel web siteleri ve e-ticaret çözümleri.",
+                title: "Bursa Web Tasarım",
+                description: "Bursa web sitesi ve e-ticaret çözümleri - modern, SEO uyumlu ve mobil uyumlu web tasarım hizmetleri.",
                 gradient: "from-blue-500 to-blue-600",
-                features: ["Responsive Tasarım", "SEO Optimizasyon", "Hızlı Yükleme", "Güvenlik"]
+                features: ["Bursa Web Sitesi", "SEO Optimizasyon", "Mobil Uyumlu", "E-ticaret"]
               },
               {
                 icon: <Smartphone className="w-6 h-6 text-white" />,
-                title: "Mobil Uygulamalar",
-                description: "Bursa'daki müşterilerinize özel mobil uygulama geliştirme.",
+                title: "Bursa Mobil Uygulama",
+                description: "Bursa yazılım ekibimizle iOS ve Android mobil uygulama geliştirme - işletmeniz için özel çözümler.",
                 gradient: "from-purple-500 to-purple-600",
-                features: ["iOS & Android", "Kullanıcı Dostu", "Yüksek Performans", "Güncelleme"]
+                features: ["iOS & Android", "React Native", "Bursa Yazılım", "Profesyonel Destek"]
               },
               {
                 icon: <Server className="w-6 h-6 text-white" />,
-                title: "Özel Yazılım",
-                description: "Bursa işletmelerine özel yazılım çözümleri ve otomasyon sistemleri.",
+                title: "Bursa Yazılım Geliştirme",
+                description: "Bursa yazılım geliştirme hizmetleri - işletmenize özel yazılım çözümleri ve otomasyon sistemleri.",
                 gradient: "from-green-500 to-green-600",
-                features: ["İş Otomasyonu", "Veritabanı", "API Entegrasyon", "Raporlama"]
+                features: ["Özel Yazılım", "İş Otomasyonu", "Bursa Yazılım", "API Geliştirme"]
               },
               {
                 icon: <Rocket className="w-6 h-6 text-white" />,
@@ -734,9 +797,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Kullandığımız Teknolojiler</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa Yazılım Teknolojilerimiz</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Modern teknolojilerle Bursa'daki işletmelere en iyi çözümleri sunuyoruz
+              <strong>Bursa yazılım geliştirme</strong> süreçlerinde kullandığımız modern teknolojiler ve frameworkler
             </p>
           </motion.div>
 
@@ -788,9 +851,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Çalışma Sürecimiz</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa Yazılım Geliştirme Sürecimiz</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Bursa'daki müşterilerimizle şeffaf ve verimli çalışma süreci
+              <strong>Bursa yazılım</strong> projelerinizde şeffaf ve profesyonel çalışma süreci
             </p>
           </motion.div>
 
@@ -855,9 +918,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa'dan Bize Ulaşın</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa Yazılım Firmasına Ulaşın</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Bursa'daki işletmeniz için ücretsiz danışmanlık talebi oluşturun
+              <strong>Bursa web</strong> ve yazılım projeleri için ücretsiz danışmanlık - hemen iletişime geçin
             </p>
           </motion.div>
 
@@ -1020,6 +1083,86 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section - SEO Optimized */}
+      <section className="py-16 px-4 sm:px-6 relative z-10 bg-gradient-to-b from-white via-blue-50/10 to-white">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa Yazılım Hakkında Sık Sorulan Sorular</h2>
+            <p className="text-gray-600 text-lg">
+              Bursa yazılım geliştirme ve web tasarım hizmetlerimiz hakkında merak edilenler
+            </p>
+          </motion.div>
+
+          <div className="space-y-4">
+            {[
+              {
+                question: "Bursa yazılım firması olarak hangi hizmetleri sunuyorsunuz?",
+                answer: "MSYazılımDuo olarak Bursa yazılım geliştirme, Bursa web tasarım, mobil uygulama geliştirme, e-ticaret çözümleri ve özel yazılım projeleri sunuyoruz. Bursa'daki işletmelere yerel destek ve profesyonel çözümler sağlıyoruz."
+              },
+              {
+                question: "Bursa web sitesi maliyetleri ne kadar?",
+                answer: "Bursa web sitesi fiyatları projenin kapsamına göre değişir. Basit kurumsal web siteleri için uygun fiyatlarla başlıyoruz. Bursa web tasarım hizmetlerimiz için ücretsiz danışmanlık alabilirsiniz."
+              },
+              {
+                question: "Bursa yazılım geliştirme süreci nasıl işler?",
+                answer: "Bursa yazılım geliştirme sürecimiz 4 aşamadan oluşur: İhtiyaç analizi, tasarım & geliştirme, test & iyileştirme, teslim & destek. Bursa'daki müşterilerimizle yüz yüze görüşerek projeleri yönetiyoruz."
+              },
+              {
+                question: "Bursa'da mobil uygulama geliştirme yapıyor musunuz?",
+                answer: "Evet, Bursa yazılım ekibimiz iOS ve Android için mobil uygulama geliştirme hizmeti sunuyor. React Native ve Flutter teknolojileriyle çapraz platform uygulamalar geliştiriyoruz."
+              },
+              {
+                question: "Bursa yazılım firmanızın referansları nelerdir?",
+                answer: "Bursa'da 20+ başarılı proje tamamladık. Kurumsal web siteleri, e-ticaret platformları ve özel yazılım projeleri geliştirdik. Bursa yazılım sektöründe güvenilir referanslarımız var."
+              },
+              {
+                question: "Bursa web tasarım projeleri ne kadar sürede tamamlanır?",
+                answer: "Bursa web tasarım projelerinin süresi projenin kapsamına bağlı. Basit web siteleri 2-3 hafta, e-ticaret siteleri 4-8 hafta, özel yazılım projeleri ise 2-6 ay sürebilir. Bursa yazılım ekibimiz hızlı teslimat yapar."
+              }
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-200 transition-all duration-300 shadow-sm hover:shadow-md"
+              >
+                <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-start gap-3">
+                  <span className="text-blue-600 text-xl flex-shrink-0">Q:</span>
+                  <span>{faq.question}</span>
+                </h3>
+                <div className="flex items-start gap-3 pl-8">
+                  <span className="text-green-600 text-xl font-bold flex-shrink-0">A:</span>
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-10 text-center"
+          >
+            <p className="text-gray-600 mb-4">Bursa yazılım hizmetlerimiz hakkında başka sorularınız mı var?</p>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 inline-flex items-center gap-2"
+            >
+              <span>Bize Ulaşın</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Footer - Enhanced */}
       <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12 px-4 sm:px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
@@ -1098,10 +1241,10 @@ export default function Home() {
 
           <div className="pt-8 border-t border-gray-700 text-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} MSYazılımDuo - Bursa. Tüm hakları saklıdır.
+              © {currentYear} MSYazılımDuo - Bursa Yazılım Firması. Tüm hakları saklıdır.
             </p>
             <p className="text-gray-500 text-xs mt-2">
-              Bursa'nın Profesyonel Yazılım Geliştirme Ekibi
+              Bursa Yazılım | Bursa Web Tasarım | Bursa Yazılım Geliştirme | Bursa Mobil Uygulama
             </p>
           </div>
         </div>
