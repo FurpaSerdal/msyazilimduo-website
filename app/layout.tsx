@@ -125,6 +125,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
         
         {/* SEO: Additional meta tags */}
+        <meta name="google-site-verification" content="gSgjagAAXKFJDFBfbXMBba97ELCO-3GlqNLlz2KUmZI" />
         <meta name="theme-color" content="#2563eb" />
         <meta name="color-scheme" content="light dark" />
         <meta name="mobile-web-app-capable" content="yes" />
