@@ -167,9 +167,9 @@ export default function Home() {
         "closes": "18:00"
       },
       "sameAs": [
-        "https://facebook.com/msyazilimduo",
-        "https://instagram.com/msyazilimduo",
-        "https://linkedin.com/company/msyazilimduo"
+        "https://facebook.com/msduoyazilim",
+        "https://instagram.com/msduoyazilim",
+        "https://linkedin.com/company/msduoyazilim"
       ]
     });
     document.head.appendChild(orgScript);
