@@ -12,7 +12,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://msyazilimduo.com"),
+  metadataBase: new URL("https://msduoyazilim.com"),
   title: {
     default: "Bursa Yazılım Firması | MSYazılımDuo - Web ve Mobil Uygulama",
     template: "%s | MSYazılımDuo - Bursa Yazılım",
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     "node.js bursa",
     "bursa yazılım ekibi",
   ],
-  authors: [{ name: "MSYazılımDuo", url: "https://msyazilimduo.com" }],
+  authors: [{ name: "MSYazılımDuo", url: "https://msduoyazilim.com" }],
   creator: "MSYazılımDuo",
   publisher: "MSYazılımDuo",
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://msyazilimduo.com",
+    url: "https://msduoyazilim.com",
     siteName: "MSYazılımDuo - Bursa Yazılım",
     title: "Bursa Yazılım Firması | MSYazılımDuo",
     description:
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://msyazilimduo.com",
+    canonical: "https://msduoyazilim.com",
   },
   verification: {
     google: "gSgjagAAXKFJDFBfbXMBba97ELCO-3GlqNLlz2KUmZI",
@@ -144,9 +144,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": ["SoftwareCompany", "LocalBusiness"],
               "name": "MSYazılımDuo",
-              "url": "https://msyazilimduo.com",
-              "logo": "https://msyazilimduo.com/logo.png",
-              "image": "https://msyazilimduo.com/og-image.png",
+              "url": "https://msduoyazilim.com",
+              "logo": "https://msduoyazilim.com/logo.png",
+              "image": "https://msduoyazilim.com/og-image.png",
               "description":
                 "Bursa merkezli profesyonel web ve mobil uygulama geliştirme firması.",
               "telephone": "+90-535-529-7508",
