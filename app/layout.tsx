@@ -141,13 +141,13 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": ["SoftwareCompany", "LocalBusiness"],
               "name": "MSYazılımDuo",
-              "url": "https://msyazilimduo.com",
-              "logo": "https://msyazilimduo.com/logo.png",
-              "image": "https://msyazilimduo.com/og-image.png",
+              "url": "https://msduoyazilim.com",
+              "logo": "https://msduoyazilim.com/logo.png",
+              "image": "https://msduoyazilim.com/og-image.png",
               "description":
                 "Bursa merkezli profesyonel web ve mobil uygulama geliştirme firması.",
               "telephone": "+90-535-529-7508",
-              "email": "info@msyazilimduo.com",
+              "email": "info@msduoyazilim.com",
               "foundingDate": "2020",
               "founder": {
                 "@type": "Person",

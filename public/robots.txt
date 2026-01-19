@@ -37,7 +37,7 @@ Crawl-delay: 10
 Request-rate: 1/10s
 
 # Sitemap locations
-Sitemap: https://msyazilimduo.com/sitemap.xml
+Sitemap: https://msduoyazilim.com/sitemap.xml
 
 # Additional configuration
 Request-rate: 1/1s

@@ -1,13 +1,13 @@
 // SEO Configuration for MSYazılımDuo
 export const seoConfig = {
   siteName: "MSYazılımDuo - Bursa Yazılım",
-  baseUrl: "https://msyazilimduo.com",
+  baseUrl: "https://msduoyazilim.com",
   description: "Bursa yazılım firması MSYazılımDuo ile profesyonel web sitesi, mobil uygulama ve yazılım geliştirme hizmetleri. Next.js, React, Node.js ile kurumsal çözümler.",
   
   // Contact information
   contact: {
     phone: "+90-535-529-7508",
-    email: "info@msyazilimduo.com",
+    email: "info@msduoyazilim.com",
     address: "Bursa, Türkiye",
   },
 

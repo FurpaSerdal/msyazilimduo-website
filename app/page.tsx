@@ -84,7 +84,7 @@ export default function Home() {
           company: form.company.value,
           message: form.message.value,
           location: "Bursa",
-          source: "msyazilimduo.com"
+          source: "msduoyazilim.com"
         }),
       });
 
@@ -138,9 +138,9 @@ export default function Home() {
       "@type": "ProfessionalService",
       "name": "MSYazılımDuo",
       "description": "Bursa'nın önde gelen yazılım geliştirme şirketi. Web ve mobil uygulama geliştirme, e-ticaret çözümleri.",
-      "image": "https://msyazilimduo.com/logo.png",
-      "@id": "https://msyazilimduo.com",
-      "url": "https://msyazilimduo.com",
+      "image": "https://msduoyazilim.com/logo.png",
+      "@id": "https://msduoyazilim.com",
+      "url": "https://msduoyazilim.com",
       "telephone": "+90-535-529-7508",
       "address": {
         "@type": "PostalAddress",
@@ -934,8 +934,8 @@ export default function Home() {
                   {
                     icon: <MailCheck className="w-5 h-5 text-blue-600" />,
                     title: "Email Adresimiz",
-                    info: "info@msyazilimduo.com",
-                    action: "mailto:info@msyazilimduo.com",
+                    info: "info@msduoyazilim.com",
+                    action: "mailto:info@msduoyazilim.com",
                     color: "from-blue-50 to-blue-100"
                   },
                   {
@@ -1222,8 +1222,8 @@ export default function Home() {
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-blue-400" />
-                  <a href="mailto:info@msyazilimduo.com" className="hover:text-white transition-colors">
-                    info@msyazilimduo.com
+                  <a href="mailto:info@msduoyazilim.com" className="hover:text-white transition-colors">
+                    info@msduoyazilim.com
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
