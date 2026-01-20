@@ -10,8 +10,14 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/logo.png",
-      "sizes": "225x225",
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
       "type": "image/png",
       "purpose": "any"
     },
@@ -26,6 +32,12 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "225x225",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
   "screenshots": [
