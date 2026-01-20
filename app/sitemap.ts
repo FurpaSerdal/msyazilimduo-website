@@ -8,8 +8,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified,
-      changeFrequency: 'weekly',
+      changeFrequency: 'daily',
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/bursa-yazilim`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.95,
     },
     {
       url: `${baseUrl}/entegrasyon`,

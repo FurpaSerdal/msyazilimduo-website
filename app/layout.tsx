@@ -81,16 +81,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
     apple: [
       { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    other: [
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png", rel: "icon" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png", rel: "icon" },
-    ],
+    shortcut: ["/favicon.ico"],
   },
   alternates: {
     canonical: "https://msduoyazilim.com",
@@ -150,7 +150,7 @@ export default function RootLayout({
               "description":
                 "Bursa merkezli profesyonel web ve mobil uygulama geliştirme firması.",
               "telephone": "+90-535-529-7508",
-              "email": "info@msyazilimduo.com",
+              "email": "info@msduoyazilim.com",
               "foundingDate": "2020",
               "founder": {
                 "@type": "Person",

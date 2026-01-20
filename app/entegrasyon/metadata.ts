@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://msyazilimduo.com"),
+  metadataBase: new URL("https://msduoyazilim.com"),
   title: "ERP Entegrasyon Çözümleri | MSYazılımDuo Bursa",
   description:
     "Bursa'da ERP entegrasyon, API geliştirme ve sistem entegrasyon hizmetleri. SAP, Logo, Mikro entegrasyonu ve veri senkronizasyon çözümleri.",
@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     "entegrasyon çözümleri",
   ],
   alternates: {
-    canonical: "https://msyazilimduo.com/entegrasyon",
+    canonical: "https://msduoyazilim.com/entegrasyon",
   },
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://msyazilimduo.com/entegrasyon",
+    url: "https://msduoyazilim.com/entegrasyon",
     siteName: "MSYazılımDuo",
     title: "ERP Entegrasyon Çözümleri | MSYazılımDuo",
     description:

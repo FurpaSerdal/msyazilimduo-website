@@ -1,0 +1,47 @@
+<svg width="225" height="225" viewBox="0 0 225 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#93c5fd;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Rounded background -->
+  <rect width="225" height="225" rx="45" fill="url(#bgGradient)"/>
+  
+  <!-- Code brackets symbol -->
+  <g transform="translate(60, 72)">
+    <!-- Left bracket -->
+    <path d="M 30 0 L 10 0 C 5 0 0 5 0 10 L 0 70 C 0 75 5 80 10 80 L 30 80" 
+          stroke="url(#codeGradient)" 
+          stroke-width="8" 
+          stroke-linecap="round" 
+          fill="none"/>
+    
+    <!-- Right bracket -->
+    <path d="M 75 0 L 95 0 C 100 0 105 5 105 10 L 105 70 C 105 75 100 80 95 80 L 75 80" 
+          stroke="url(#codeGradient)" 
+          stroke-width="8" 
+          stroke-linecap="round" 
+          fill="none"/>
+    
+    <!-- Forward slash -->
+    <line x1="45" y1="10" x2="60" y2="70" 
+          stroke="#93c5fd" 
+          stroke-width="8" 
+          stroke-linecap="round"/>
+  </g>
+  
+  <!-- MS text -->
+  <text x="112.5" y="195" 
+        font-family="Arial, sans-serif" 
+        font-size="28" 
+        font-weight="bold" 
+        fill="white" 
+        text-anchor="middle">MS</text>
+</svg>

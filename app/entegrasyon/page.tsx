@@ -40,7 +40,7 @@ export default function EntegrasyonPage() {
       "@type": "WebPage",
       "name": "ERP Entegrasyon Çözümleri | MSYazılımDuo Bursa",
       "description": "Bursa'da ERP entegrasyon, API geliştirme ve sistem entegrasyon hizmetleri. SAP, Logo, Mikro entegrasyonu.",
-      "url": "https://msyazilimduo.com/entegrasyon",
+      "url": "https://msduoyazilim.com/entegrasyon",
       "mainEntity": {
         "@type": "Service",
         "name": "ERP Entegrasyon",
@@ -847,7 +847,7 @@ export default function EntegrasyonPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="w-3 h-3" />
-                  info@msyazilimduo.com
+                  info@msduoyazilim.com
                 </li>
                 <li>
                   <button 
