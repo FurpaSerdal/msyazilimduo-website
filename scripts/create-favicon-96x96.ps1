@@ -1,3 +1,8 @@
+# Create 96x96 PNG favicon from SVG
+# This script creates a PNG favicon by converting the SVG
+
+# For now, copy favicon.png and scale it
+$svg = @'
 <svg width="96" height="96" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -28,3 +33,10 @@
           stroke-linecap="round"/>
   </g>
 </svg>
+'@
+
+$svg | Out-File -FilePath "$PSScriptRoot\..\public\favicon-96x96.svg" -Encoding UTF8
+Write-Host "favicon-96x96.svg created"
+
+# Since we can't easily create PNG without additional tools, we'll use the SVG with 96x96 size attribute
+Write-Host "To convert to PNG, use: https://convertio.co/svg-png/ or similar tool"

@@ -16,14 +16,14 @@
       "purpose": "any"
     },
     {
-      "src": "/favicon-96x96.svg",
-      "sizes": "96x96",
-      "type": "image/svg+xml",
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/favicon.png",
-      "sizes": "32x32",
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
       "type": "image/png",
       "purpose": "any"
     },
