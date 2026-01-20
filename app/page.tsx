@@ -108,23 +108,25 @@ export default function Home() {
     setWhatsappMessage('');
   };
 
-  // Scroll to section
+  // Scroll to section - mobil ve masaüstü uyumlu
   const scrollToSection = (sectionId: string) => {
     setShowWhatsappModal(false);
     
     setTimeout(() => {
       const element = document.getElementById(sectionId);
       if (element) {
-        const navHeight = 80;
+        // Dinamik navbar yüksekliğini hesapla
+        const navBar = document.querySelector('nav');
+        const navHeight = navBar ? navBar.offsetHeight : 80;
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navHeight;
+        const offsetPosition = elementPosition - navHeight - 10; // 10px extra padding
         
         window.scrollTo({
-          top: offsetPosition,
+          top: Math.max(0, offsetPosition),
           behavior: 'smooth'
         });
       }
-    }, 100);
+    }, 50);
   };
 
   // Add JSON-LD for SEO

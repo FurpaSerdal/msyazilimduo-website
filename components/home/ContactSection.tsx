@@ -103,19 +103,19 @@ export default function ContactSection({ onSubmit, isSubmitting }: ContactSectio
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-xl"
+            className="bg-white rounded-2xl p-5 sm:p-8 border border-gray-200 shadow-xl"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center flex-shrink-0">
                 <Mail className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900">Projenizi Anlatın</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Projenizi Anlatın</h3>
                 <p className="text-gray-600 text-sm">24 saat içinde dönüş yapıyoruz</p>
               </div>
             </div>
 
-            <form onSubmit={onSubmit} className="space-y-5">
+            <form onSubmit={onSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-2 text-gray-700">Ad Soyad *</label>
@@ -123,7 +123,7 @@ export default function ContactSection({ onSubmit, isSubmitting }: ContactSectio
                     name="name"
                     placeholder="İsminiz"
                     required
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 sm:py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400 text-base sm:text-sm"
                   />
                 </div>
 
@@ -134,7 +134,7 @@ export default function ContactSection({ onSubmit, isSubmitting }: ContactSectio
                     type="email"
                     placeholder="email@example.com"
                     required
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 sm:py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400 text-base sm:text-sm"
                   />
                 </div>
               </div>
@@ -144,7 +144,7 @@ export default function ContactSection({ onSubmit, isSubmitting }: ContactSectio
                 <input
                   name="company"
                   placeholder="Şirket adınız (Bursa)"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 sm:py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400 text-base sm:text-sm"
                 />
               </div>
 
@@ -155,7 +155,7 @@ export default function ContactSection({ onSubmit, isSubmitting }: ContactSectio
                   placeholder="Projeniz hakkında detaylı bilgi verin..."
                   required
                   rows={5}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400 resize-none"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all hover:border-gray-400 resize-none text-base sm:text-sm"
                 />
               </div>
 
@@ -164,7 +164,7 @@ export default function ContactSection({ onSubmit, isSubmitting }: ContactSectio
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3.5 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-base disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3.5 sm:py-3 rounded-lg font-semibold hover:shadow-xl active:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-base disabled:opacity-70 disabled:cursor-not-allowed min-h-[48px]"
               >
                 {isSubmitting ? (
                   <>

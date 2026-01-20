@@ -56,15 +56,15 @@ export default function FAQSection({ scrollToSection }: FAQSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-xl p-6 border border-gray-200 hover:border-blue-200 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="bg-white rounded-xl p-4 sm:p-6 border border-gray-200 hover:border-blue-200 transition-all duration-300 shadow-sm hover:shadow-md"
             >
-              <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-start gap-3">
-                <span className="text-blue-600 text-xl flex-shrink-0">Q:</span>
+              <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-3 flex items-start gap-3">
+                <span className="text-blue-600 text-lg sm:text-xl flex-shrink-0">Q:</span>
                 <span>{faq.question}</span>
               </h3>
-              <div className="flex items-start gap-3 pl-8">
-                <span className="text-green-600 text-xl font-bold flex-shrink-0">A:</span>
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+              <div className="flex items-start gap-3 pl-6 sm:pl-8">
+                <span className="text-green-600 text-lg sm:text-xl font-bold flex-shrink-0">A:</span>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{faq.answer}</p>
               </div>
             </motion.div>
           ))}
@@ -76,10 +76,10 @@ export default function FAQSection({ scrollToSection }: FAQSectionProps) {
           viewport={{ once: true }}
           className="mt-10 text-center"
         >
-          <p className="text-gray-600 mb-4">Bursa yazılım hizmetlerimiz hakkında başka sorularınız mı var?</p>
+          <p className="text-gray-600 mb-4 text-sm sm:text-base">Bursa yazılım hizmetlerimiz hakkında başka sorularınız mı var?</p>
           <button
             onClick={() => scrollToSection('contact')}
-            className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 inline-flex items-center gap-2"
+            className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 sm:px-8 py-3.5 sm:py-3 rounded-xl font-semibold hover:shadow-lg active:shadow-lg transition-all duration-300 inline-flex items-center gap-2 text-base min-h-[48px] min-w-[200px] justify-center sm:min-w-auto"
           >
             <span>Bize Ulaşın</span>
             <ArrowRight className="w-4 h-4" />

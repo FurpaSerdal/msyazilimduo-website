@@ -14,12 +14,12 @@ export default function ProcessSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa Yazılım Geliştirme Sürecimiz</h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
             <strong>Bursa yazılım</strong> projelerinizde şeffaf ve profesyonel çalışma süreci
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {[
             {
               step: "1",
@@ -54,17 +54,17 @@ export default function ProcessSection() {
               transition={{ delay: i * 0.1 }}
               className="text-center group"
             >
-              <div className="relative mb-6">
+              <div className="relative mb-4 sm:mb-6">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-xl flex items-center justify-center text-xl sm:text-2xl font-bold mx-auto relative z-10 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                <div className="w-14 h-14 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-xl flex items-center justify-center text-lg sm:text-2xl font-bold mx-auto relative z-10 shadow-lg group-hover:shadow-xl transition-all duration-300">
                   {item.step}
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                <div className="absolute -top-2 -right-2 w-7 h-7 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
                   {item.icon}
                 </div>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-900">{item.title}</h3>
-              <p className="text-gray-600 text-sm sm:text-base">{item.desc}</p>
+              <h3 className="text-base sm:text-lg font-bold mb-2 text-gray-900">{item.title}</h3>
+              <p className="text-gray-600 text-sm">{item.desc}</p>
             </motion.div>
           ))}
         </div>

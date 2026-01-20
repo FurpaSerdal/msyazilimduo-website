@@ -13,7 +13,7 @@ export default function TechnologiesSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa Yazılım Teknolojilerimiz</h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
             <strong>Bursa yazılım geliştirme</strong> süreçlerinde kullandığımız modern teknolojiler ve frameworkler
           </p>
         </motion.div>
@@ -22,7 +22,7 @@ export default function TechnologiesSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3"
         >
           {[
             { name: "React/Next.js", color: "bg-blue-100 text-blue-800" },
@@ -48,9 +48,9 @@ export default function TechnologiesSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.03 }}
-              className={`${tech.color} rounded-lg p-3 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1`}
+              className={`${tech.color} rounded-lg p-2 sm:p-3 text-center hover:shadow-md transition-all duration-300 hover:-translate-y-1`}
             >
-              <span className="font-medium text-xs sm:text-sm">{tech.name}</span>
+              <span className="font-medium text-xs">{tech.name}</span>
             </motion.div>
           ))}
         </motion.div>

@@ -14,26 +14,26 @@ export default function Footer({ scrollToSection, setShowWhatsappModal }: Footer
   return (
     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12 px-4 sm:px-6 relative z-10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg flex-shrink-0">
                 <Code2 className="w-5 h-5 text-white" />
               </div>
-              <div>
-                <h3 className="font-bold text-xl">MSYazılımDuo</h3>
-                <p className="text-blue-300 text-sm">Bursa Yazılım Ekibi</p>
+              <div className="min-w-0">
+                <h3 className="font-bold text-lg sm:text-xl">MSYazılımDuo</h3>
+                <p className="text-blue-300 text-xs sm:text-sm truncate">Bursa Yazılım Ekibi</p>
               </div>
             </div>
-            <p className="text-gray-300 text-sm">
+            <p className="text-gray-300 text-xs sm:text-sm">
               Bursa merkezli profesyonel yazılım geliştirme ekibi.
               İşletmenizin dijital dönüşümünde yanınızdayız.
             </p>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-lg">Hizmetler</h4>
-            <ul className="space-y-3 text-gray-300">
+            <h4 className="font-bold mb-4 text-base sm:text-lg">Hizmetler</h4>
+            <ul className="space-y-2 sm:space-y-3 text-gray-300">
               {[
                 { label: "Bursa Yazılım", href: "/bursa-yazilim" },
                 { label: "Web Geliştirme", href: "/#services" },
@@ -43,8 +43,8 @@ export default function Footer({ scrollToSection, setShowWhatsappModal }: Footer
                 { label: "SEO Optimizasyon", href: "/#technologies" },
               ].map((item, i) => (
                 <li key={i}>
-                  <a href={item.href} className="hover:text-white transition-colors flex items-center gap-2">
-                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <a href={item.href} className="hover:text-white transition-colors flex items-center gap-2 group text-xs sm:text-sm">
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                     {item.label}
                   </a>
                 </li>

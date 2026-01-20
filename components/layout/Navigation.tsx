@@ -34,16 +34,18 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
     setTimeout(() => {
       const element = document.getElementById(sectionId);
       if (element) {
-        const navHeight = 80;
+        // Dinamik navbar yüksekliğini hesapla
+        const navBar = document.querySelector('nav');
+        const navHeight = navBar ? navBar.offsetHeight : 80;
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navHeight;
+        const offsetPosition = elementPosition - navHeight - 10; // 10px extra padding
         
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
         });
       }
-    }, 350);
+    }, 300);
   };
 
   return (
@@ -58,7 +60,10 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-2 cursor-pointer group"
-          onClick={() => scrollToSection('home')}
+          onClick={() => {
+            setMobileMenuOpen(false);
+            scrollToSection('home');
+          }}
         >
           <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
             <Code2 className="w-5 h-5 text-white" />
@@ -138,7 +143,7 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-gray-100 overflow-hidden shadow-lg"
           >
-            <div className="px-4 py-3 space-y-1">
+            <div className="px-3 py-4 space-y-2 max-h-[calc(100vh-80px)] overflow-y-auto">
               {[
                 { id: 'about', label: 'Hakkımızda', type: 'scroll' },
                 { id: 'services', label: 'Çözümlerimiz', type: 'scroll' },
@@ -151,10 +156,10 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
                     <button
                       key={item.id}
                       onClick={() => handleMobileScroll(item.id)}
-                      className="flex items-center justify-between w-full py-3 px-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors"
+                      className="flex items-center justify-between w-full py-3 px-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors active:bg-blue-100 min-h-[44px]"
                     >
-                      <span>{item.label}</span>
-                      <ChevronRight className="w-4 h-4" />
+                      <span className="text-base">{item.label}</span>
+                      <ChevronRight className="w-5 h-5" />
                     </button>
                   );
                 }
@@ -163,19 +168,20 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
                   <Link
                     key={item.id}
                     href={item.href ?? '#'}
-                    className="flex items-center justify-between w-full py-3 px-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors"
+                    className="flex items-center justify-between w-full py-3 px-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors active:bg-blue-100 min-h-[44px]"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span>{item.label}</span>
-                    <ChevronRight className="w-4 h-4" />
+                    <span className="text-base">{item.label}</span>
+                    <ChevronRight className="w-5 h-5" />
                   </Link>
                 );
               })}
               <button
                 onClick={() => handleMobileScroll('contact')}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-medium hover:shadow-md transition-all duration-300 mt-2 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3.5 px-4 rounded-lg font-semibold hover:shadow-md active:shadow-lg transition-all duration-300 mt-3 flex items-center justify-center gap-2 min-h-[48px] text-base"
               >
                 <span>Ücretsiz Danışmanlık</span>
-                <ArrowRight className="w-3 h-3" />
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </motion.div>
