@@ -82,6 +82,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/favicon-96x96.svg", type: "image/svg+xml", sizes: "96x96" },
       { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.png", type: "image/png", sizes: "32x32" },
       { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
@@ -139,7 +140,6 @@ export default function RootLayout({
         <meta name="color-scheme" content="light dark" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="MSYazılımDuo" />
         <meta name="msapplication-TileColor" content="#2563eb" />
         <meta name="application-name" content="MSYazılımDuo" />
         

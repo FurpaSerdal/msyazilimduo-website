@@ -16,6 +16,12 @@
       "purpose": "any"
     },
     {
+      "src": "/favicon-96x96.svg",
+      "sizes": "96x96",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
       "src": "/favicon.png",
       "sizes": "32x32",
       "type": "image/png",
