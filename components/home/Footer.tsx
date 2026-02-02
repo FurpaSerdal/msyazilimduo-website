@@ -8,6 +8,19 @@ interface FooterProps {
   setShowWhatsappModal: (show: boolean) => void;
 }
 
+const servicesLinks = [
+  { label: "Bursa Yazılım", href: "/bursa-yazilim" },
+  { label: "Bursa Yazılım Geliştirme", href: "/bursa-yazilim-gelistirme" },
+  { label: "Bursa Yazılım Ekibi", href: "/bursa-yazilim-ekibi" },
+  { label: "Bursa Yazılım Firması", href: "/bursa-yazilim-firmasi" },
+  { label: "Web Geliştirme", href: "/#services" },
+  { label: "Mobil Uygulamalar", href: "/#services" },
+  { label: "E-ticaret", href: "/#services" },
+  { label: "Yazılım Danışmanlığı", href: "/#about" },
+];
+
+const companyLinks = ["Hakkımızda", "Süreç", "Referanslar", "Blog", "Kariyer", "Gizlilik Politikası"];
+
 export default function Footer({ scrollToSection, setShowWhatsappModal }: FooterProps) {
   const currentYear = useMemo(() => new Date().getUTCFullYear(), []);
 
@@ -34,14 +47,7 @@ export default function Footer({ scrollToSection, setShowWhatsappModal }: Footer
           <div>
             <h4 className="font-bold mb-4 text-base sm:text-lg">Hizmetler</h4>
             <ul className="space-y-2 sm:space-y-3 text-gray-300">
-              {[
-                { label: "Bursa Yazılım", href: "/bursa-yazilim" },
-                { label: "Web Geliştirme", href: "/#services" },
-                { label: "Mobil Uygulamalar", href: "/#services" },
-                { label: "E-ticaret", href: "/#services" },
-                { label: "Yazılım Danışmanlığı", href: "/#about" },
-                { label: "SEO Optimizasyon", href: "/#technologies" },
-              ].map((item, i) => (
+              {servicesLinks.map((item, i) => (
                 <li key={i}>
                   <a href={item.href} className="hover:text-white transition-colors flex items-center gap-2 group text-xs sm:text-sm">
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
@@ -55,7 +61,7 @@ export default function Footer({ scrollToSection, setShowWhatsappModal }: Footer
           <div>
             <h4 className="font-bold mb-4 text-lg">Şirket</h4>
             <ul className="space-y-3 text-gray-300">
-              {["Hakkımızda", "Süreç", "Referanslar", "Blog", "Kariyer", "Gizlilik Politikası"].map((item, i) => (
+              {companyLinks.map((item, i) => (
                 <li key={i}>
                   <a href={`#${item.toLowerCase()}`} className="hover:text-white transition-colors flex items-center gap-2">
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />

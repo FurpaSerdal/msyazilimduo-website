@@ -14,58 +14,64 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://msduoyazilim.com"),
   title: {
-    default: "Bursa Yazılım Firması | MSYazılımDuo - Web ve Mobil Uygulama",
-    template: "%s | MSYazılımDuo - Bursa Yazılım",
+    default: "Bursa Yazılım Firması | msduoyazilim - Bursa Yazılım Geliştirme",
+    template: "%s | msduoyazilim - Bursa Yazılım",
   },
   description:
-    "Bursa yazılım - MSYazılımDuo ile profesyonel web sitesi, mobil uygulama geliştirme. Bursa web tasarım ve yazılım geliştirme hizmetleri. React, Next.js ile kurumsal çözümler.",
+    "Bursa yazılım firması msduoyazilim ile profesyonel web sitesi, mobil uygulama geliştirme ve yazılım çözümleri. Bursa yazılım ekibi ile React, Next.js, Node.js ile kurumsal yazılım geliştirme hizmetleri. 5+ yıl tecrübe, 50+ başarılı proje.",
   keywords: [
     "bursa yazılım",
     "bursa yazılım firması",
     "bursa yazılım şirketi",
     "bursa yazılım geliştirme",
+    "bursa yazılım ekibi",
+    "yazılım geliştirme bursa",
+    "yazılım firması bursa",
     "bursa web tasarım",
     "bursa web sitesi",
-    "yazılım geliştirme bursa",
     "mobil uygulama bursa",
     "e-ticaret bursa",
     "web geliştirme bursa",
     "react geliştirme bursa",
     "next.js bursa",
     "node.js bursa",
-    "bursa yazılım ekibi",
+    "bursa yazılımcı",
+    "bursa yazılım uzmanı",
+    "kurumsal yazılım bursa",
+    "bursa web yazılım",
+    "bursa yazılım ajansı",
   ],
-  authors: [{ name: "MSYazılımDuo", url: "https://msduoyazilim.com" }],
-  creator: "MSYazılımDuo",
-  publisher: "MSYazılımDuo",
+  authors: [{ name: "msduoyazilim", url: "https://msduoyazilim.com" }],
+  creator: "msduoyazilim",
+  publisher: "msduoyazilim",
   openGraph: {
     type: "website",
     locale: "tr_TR",
     url: "https://msduoyazilim.com",
-    siteName: "MSYazılımDuo - Bursa Yazılım",
-    title: "Bursa Yazılım Firması | MSYazılımDuo",
+    siteName: "msduoyazilim - Bursa Yazılım Firması",
+    title: "Bursa Yazılım Firması | msduoyazilim - Profesyonel Yazılım Geliştirme",
     description:
-      "Bursa yazılım - Profesyonel web ve mobil uygulama geliştirme. Bursa'nın öncü yazılım firması.",
+      "Bursa yazılım şirketi msduoyazilim ile profesyonel web ve mobil yazılım geliştirme. Bursa yazılım ekibi ile 50+ başarılı proje.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "MSYazılımDuo Yazılım Firması",
+        alt: "msduoyazilim Bursa Yazılım Firması",
       },
       {
         url: "/logo.png",
         width: 225,
         height: 225,
-        alt: "MSYazılımDuo Logo",
+        alt: "msduoyazilim Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bursa Yazılım | MSYazılımDuo",
+    title: "Bursa Yazılım Firması | msduoyazilim",
     description:
-      "Bursa'da profesyonel web ve mobil yazılım geliştirme hizmetleri.",
+      "Bursa'da profesyonel web ve mobil yazılım geliştirme hizmetleri. Bursa yazılım ekibi ile kurumsal çözümler.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -113,7 +119,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "MSYazılımDuo",
+    title: "msduoyazilim",
   },
   manifest: "/manifest.json",
 };
@@ -140,7 +146,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="msapplication-TileColor" content="#2563eb" />
-        <meta name="application-name" content="MSYazılımDuo" />
+        <meta name="application-name" content="msduoyazilim" />
         
         {/* ✅ SCHEMA (LOCAL BUSINESS + SOFTWARE COMPANY) */}
         <script
@@ -149,7 +155,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": ["SoftwareCompany", "LocalBusiness"],
-              "name": "MSYazılımDuo",
+              "name": "msduoyazilim",
               "url": "https://msduoyazilim.com",
               "logo": "https://msduoyazilim.com/logo.png",
               "image": "https://msduoyazilim.com/og-image.png",
@@ -160,7 +166,7 @@ export default function RootLayout({
               "foundingDate": "2020",
               "founder": {
                 "@type": "Person",
-                "name": "MSYazılımDuo Team"
+                "name": "msduoyazilim Team"
               },
               "address": {
                 "@type": "PostalAddress",

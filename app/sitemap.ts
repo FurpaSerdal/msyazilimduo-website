@@ -18,6 +18,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${baseUrl}/bursa-yazilim-gelistirme`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.94,
+    },
+    {
+      url: `${baseUrl}/bursa-yazilim-ekibi`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.93,
+    },
+    {
+      url: `${baseUrl}/bursa-yazilim-firmasi`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.94,
+    },
+    {
       url: `${baseUrl}/entegrasyon`,
       lastModified,
       changeFrequency: 'weekly',
