@@ -118,7 +118,7 @@ export function generateOrganizationSchema() {
     "@type": ["SoftwareCompany", "LocalBusiness"],
     "name": seoConfig.organization.name,
     "url": seoConfig.baseUrl,
-    "logo": `${seoConfig.baseUrl}/logo.png`,
+    "logo": `${seoConfig.baseUrl}/icon-512.png`,
     "image": `${seoConfig.baseUrl}/og-image.png`,
     "description": seoConfig.description,
     "telephone": seoConfig.contact.phone,

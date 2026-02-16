@@ -139,7 +139,7 @@ export default function Home() {
       "@type": "ProfessionalService",
       "name": "MSYazılımDuo",
       "description": "Bursa'nın önde gelen yazılım geliştirme şirketi. Web ve mobil uygulama geliştirme, e-ticaret çözümleri.",
-      "image": "https://msduoyazilim.com/logo.png",
+      "image": "https://msduoyazilim.com/icon-512.png",
       "@id": "https://msduoyazilim.com",
       "url": "https://msduoyazilim.com",
       "telephone": "+90-535-529-7508",

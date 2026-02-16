@@ -128,7 +128,7 @@ Herhangi bir SVG editörü ile düzenlenebilir:
 <img src="/logo-option-2.svg" alt="MSYazılımDuo logo" width="200">
 
 <!-- Favicon olarak -->
-<link rel="icon" href="/logo-icon.svg" type="image/svg+xml">
+<link rel="icon" href="/icon-512.png" type="image/png">
 ```
 
 ---

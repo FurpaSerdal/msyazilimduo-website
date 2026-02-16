@@ -91,12 +91,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo-icon.svg", type: "image/svg+xml", sizes: "any" },
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
-      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
-      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
       { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+      { url: "/logo-icon.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
     ],
     apple: [
       { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
@@ -162,7 +159,7 @@ export default function RootLayout({
               "name": "msduoyazilim - Bursa Yazılım Firması",
               "alternateName": ["msduoyazilim", "msduoyazilim", "Bursa Yazılım"],
               "url": "https://msduoyazilim.com",
-              "logo": "https://msduoyazilim.com/logo.png",
+              "logo": "https://msduoyazilim.com/icon-512.png",
               "image": "https://msduoyazilim.com/og-image.png",
               "description":
                 "Bursa yazılım firması msduoyazilim - Bursa yazılım geliştirme, Bursa yazılım ekibi ile profesyonel web sitesi, mobil uygulama ve e-ticaret çözümleri sunuyoruz.",

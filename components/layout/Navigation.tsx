@@ -69,9 +69,9 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
           <Image
             src="/logo-option-2.svg"
             alt="msduoyazilim"
-            width={44}
-            height={44}
-            className="rounded-xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+            width={48}
+            height={48}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
             priority
           />
           <div className="flex flex-col leading-tight">
