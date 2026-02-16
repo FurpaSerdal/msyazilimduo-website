@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Code2, Menu, ChevronRight, ArrowRight, Sparkle } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, ChevronRight, ArrowRight } from 'lucide-react';
 
 interface NavigationProps {
   activeSection: string;
@@ -59,22 +60,26 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-2 cursor-pointer group"
+          className="flex items-center gap-2.5 cursor-pointer group"
           onClick={() => {
             setMobileMenuOpen(false);
             scrollToSection('home');
           }}
         >
-          <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-            <Code2 className="w-5 h-5 text-white" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-bold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
-              MSYazılımDuo
+          <Image
+            src="/logo-option-2.svg"
+            alt="msduoyazilim"
+            width={44}
+            height={44}
+            className="rounded-xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+            priority
+          />
+          <div className="flex flex-col leading-tight">
+            <span className="font-bold text-lg tracking-tight text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+              msduoyazilim
             </span>
-            <span className="text-[10px] text-gray-500 font-medium flex items-center gap-1">
-              <Sparkle className="w-2 h-2" />
-              Bursa Yazılım Ekibi
+            <span className="text-[10px] text-gray-500 font-semibold mt-0.5">
+              Bursa Yazılım
             </span>
           </div>
         </motion.div>

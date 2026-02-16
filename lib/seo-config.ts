@@ -1,8 +1,8 @@
 // SEO Configuration for MSYazılımDuo
 export const seoConfig = {
-  siteName: "MSYazılımDuo - Bursa Yazılım",
+  siteName: "MSYazılımDuo - Bursa Yazılım Firması",
   baseUrl: "https://msduoyazilim.com",
-  description: "Bursa yazılım firması MSYazılımDuo ile profesyonel web sitesi, mobil uygulama ve yazılım geliştirme hizmetleri. Next.js, React, Node.js ile kurumsal çözümler.",
+  description: "Bursa yazılım firması MSYazılımDuo - Bursa yazılım geliştirme, Bursa yazılım ekibi ile profesyonel web sitesi, mobil uygulama ve e-ticaret çözümleri. Bursa'da yazılım geliştirme hizmetleri.",
   
   // Contact information
   contact: {
@@ -32,6 +32,7 @@ export const seoConfig = {
       "bursa yazılım ekibi",
       "bursa web tasarım",
       "bursa web sitesi",
+      "bursa yazılım hizmetleri",
     ],
     secondary: [
       "yazılım geliştirme bursa",
@@ -48,6 +49,8 @@ export const seoConfig = {
       "bursa yazılım uzmanı",
       "kurumsal yazılım bursa",
       "bursa web yazılım",
+      "bursa dijital ajans",
+      "bursa web ajansı",
     ],
     local: [
       "bursa yazılım hizmetleri",
@@ -55,6 +58,8 @@ export const seoConfig = {
       "bursa dijital ajans",
       "bursa software company",
       "software development bursa",
+      "bursa yazılım çözümleri",
+      "bursa şirketi yazılım",
     ],
   },
 

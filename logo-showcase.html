@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>msduoyazilim - Logo Seçenekleri & Karşılaştırma</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            color: #1e293b;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .color-box {
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .color-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .color-primary {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+
+        .color-accent {
+            background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%);
+        }
+
+        .color-light {
+            background: #3b82f6;
+        }
+
+        .color-grey {
+            background: #64748b;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .logo-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .logo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #2563eb;
+        }
+
+        .logo-display {
+            width: 100%;
+            height: 200px;
+            background: #f9fafb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 2px solid #e5e7eb;
+            overflow: hidden;
+        }
+
+        .logo-display img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+
+        .logo-desc {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .logo-use {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+            margin: 15px 0;
+        }
+
+        .logo-use strong {
+            display: block;
+            color: #1e40af;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .logo-use span {
+            color: #475569;
+            font-size: 0.85rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-secondary:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item {
+            padding: 20px;
+            border-left: 4px solid #2563eb;
+            border-radius: 8px;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1e293b;
+        }
+
+        .feature-text {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            color: #64748b;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .recommendation {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
+            margin: 30px 0;
+        }
+
+        .recommendation strong {
+            color: #92400e;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .recommendation span {
+            color: #78350f;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .color-palette {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 msduoyazilim Logo Tasarımları</h1>
+            <p class="subtitle">Bursa Yazılım Firması - Profesyonel Logo Seçenekleri</p>
+        </header>
+
+        <!-- Renk Paleti -->
+        <section>
+            <h2 style="font-size: 1.8rem; margin-bottom: 30px; color: #1e293b;">🎯 Renk Paleti</h2>
+            <div class="color-palette">
+                <div class="color-box color-primary">
+                    <div>#2563eb</div>
+                    <div style="font-size: 0.8rem; margin-top: 5px;">Ana Mavi</div>
+                </div>
+                <div class="color-box color-light">
+                    <div>#3b82f6</div>
+                    <div style="font-size: 0.8rem; margin-top: 5px;">Açık Mavi</div>
+                </div>
+                <div class="color-box color-accent">
+                    <div>#06b6d4</div>
+                    <div style="font-size: 0.8rem; margin-top: 5px;">Cyan</div>
+                </div>
+                <div class="color-box color-grey">
+                    <div>#1e40af</div>
+                    <div style="font-size: 0.8rem; margin-top: 5px;">Koyu Mavi</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logo Seçenekleri -->
+        <section>
+            <h2 style="font-size: 1.8rem; margin-bottom: 30px; margin-top: 40px; color: #1e293b;">📋 Logo Seçenekleri</h2>
+
+            <div class="logo-grid">
+                <!-- Option 1 -->
+                <div class="logo-card">
+                    <div class="logo-display">
+                        <img src="/logo-option-1.svg" alt="Logo Option 1">
+                    </div>
+                    <div class="logo-title">Option 1: Klasik B Tasarımı</div>
+                    <div class="logo-desc">
+                        Bursa'nın baş harfi "B" tabanlı profesyonel tasarım. Geleneksel ama modern görünüm.
+                    </div>
+                    <div class="logo-use">
+                        <strong>En İyi Kullanım:</strong>
+                        <span>Kurumsal belgeler, sertifikalar, düşük renkli baskılar</span>
+                    </div>
+                    <div class="logo-use">
+                        <strong>Stil:</strong>
+                        <span>Geleneksel → Modern (mavi gradyan)</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="/logo-option-1.svg" download class="btn btn-primary">İndir (SVG)</a>
+                    </div>
+                </div>
+
+                <!-- Option 2 -->
+                <div class="logo-card">
+                    <div class="logo-display">
+                        <img src="/logo-option-2.svg" alt="Logo Option 2">
+                    </div>
+                    <div class="logo-title">Option 2: Geometrik Piramit</div>
+                    <div class="logo-desc">
+                        Modern geometrik şekiller (üçgen + altıgen). Dinamik ve çağdaş tasarım.
+                    </div>
+                    <div class="logo-use">
+                        <strong>En İyi Kullanım:</strong>
+                        <span>Web sitesi, sosyal medya, digital materyaller</span>
+                    </div>
+                    <div class="logo-use">
+                        <strong>Stil:</strong>
+                        <span>Minimalist & Modern (mavi-cyan gradyan)</span>
+                    </div>
+                    <div class="recommendation">
+                        <strong>⭐ Önerilen!</strong>
+                        <span>Web sitesi ve sosyal medya için en uygun seçenek</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="/logo-option-2.svg" download class="btn btn-primary">İndir (SVG)</a>
+                    </div>
+                </div>
+
+                <!-- Option 3 -->
+                <div class="logo-card">
+                    <div class="logo-display">
+                        <img src="/logo-option-3.svg" alt="Logo Option 3">
+                    </div>
+                    <div class="logo-title">Option 3: Mektep Tasarımı</div>
+                    <div class="logo-desc">
+                        M-D harfi kombinasyonu (Mobile-Development). Tipografik yaklaşım.
+                    </div>
+                    <div class="logo-use">
+                        <strong>En İyi Kullanım:</strong>
+                        <span>Marketing materyalleri, başlıklar, ön sayfalar</span>
+                    </div>
+                    <div class="logo-use">
+                        <strong>Stil:</strong>
+                        <span>Tipografik & Modern</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="/logo-option-3.svg" download class="btn btn-primary">İndir (SVG)</a>
+                    </div>
+                </div>
+
+                <!-- Option 4 -->
+                <div class="logo-card">
+                    <div class="logo-display">
+                        <img src="/logo-icon.svg" alt="Logo Icon">
+                    </div>
+                    <div class="logo-title">Option 4: Pure Icon</div>
+                    <div class="logo-desc">
+                        Açı parantezleri (< > - kod sembolü). Saf ve minimalist icon formu.
+                    </div>
+                    <div class="logo-use">
+                        <strong>En İyi Kullanım:</strong>
+                        <span>Favicon, avatar, uygulama ikonu, 32-128px boyutlar</span>
+                    </div>
+                    <div class="logo-use">
+                        <strong>Stil:</strong>
+                        <span>Clean Minimalist (matematik-teknoloji sembolü)</span>
+                    </div>
+                    <div class="recommendation">
+                        <strong>⭐ Favicon İçin Ideal!</strong>
+                        <span>Minimum boyutlarda en iyi görünüm</span>
+                    </div>
+                    <div class="btn-group">
+                        <a href="/logo-icon.svg" download class="btn btn-primary">İndir (SVG)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Özellikler -->
+        <section>
+            <h2 style="font-size: 1.8rem; margin-bottom: 30px; margin-top: 40px; color: #1e293b;">✨ Logo Tasarım Özellikleri</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-title">🎨 Profesyonel Tasarım</div>
+                    <div class="feature-text">Modern ve çağdaş, Bursa'da yazılım firması kimliğine uygun</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-title">📱 Responsive</div>
+                    <div class="feature-text">Tüm cihazlarda ve boyutlarda mükemmel görünüm (32px - 1000px+)</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-title">🎯 Vektör Format</div>
+                    <div class="feature-text">SVG formatı - sınırsız ölçeklenebilir, dosya boyutu küçük</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-title">🌈 Renk Tutarlılığı</div>
+                    <div class="feature-text">Markanız için belirtilen renk paleti ile tam uyum</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-title">📊 Çok Amaçlı</div>
+                    <div class="feature-text">Web, baskı, uygulama, sosyal medya - her yerde kullanılabilir</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-title">🔧 Kolayca Düzenlenebilir</div>
+                    <div class="feature-text">Figma, Illustrator, VS Code ile açıp değiştirebilirsiniz</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kullanım Rehberi -->
+        <section style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); margin: 40px 0;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: #1e293b;">📖 Kullanım Rehberi</h2>
+            
+            <h3 style="font-size: 1.3rem; color: #1e40af; margin: 20px 0 15px 0;">Web Sitesine Entegrasyon</h3>
+            <pre style="background: #f9fafb; padding: 15px; border-radius: 8px; overflow-x: auto; border-left: 4px solid #2563eb;"><code>&lt;!-- Navigation Logosu --&gt;
+&lt;img src="/logo-option-2.svg" alt="msduoyazilim" width="200"&gt;
+
+&lt;!-- Favicon --&gt;
+&lt;link rel="icon" href="/logo-icon.svg" type="image/svg+xml"&gt;
+
+&lt;!-- Footer Logosu --&gt;
+&lt;img src="/logo-option-1.svg" alt="msduoyazilim" width="120"&gt;</code></pre>
+
+            <h3 style="font-size: 1.3rem; color: #1e40af; margin: 20px 0 15px 0;">Dosya Formatları</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">✅ <strong>SVG</strong> - Vektör, ölçeklenebilir (tercih edilir)</li>
+                <li style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">✅ <strong>PNG</strong> - Web kullanımı (128-512px)</li>
+                <li style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">✅ <strong>JPEG</strong> - Basılı belgeler</li>
+            </ul>
+
+            <h3 style="font-size: 1.3rem; color: #1e40af; margin: 20px 0 15px 0;">Logo Boyutları</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                <tr style="background: #f9fafb;">
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #2563eb;">Kullanım Yeri</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #2563eb;">Boyut</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #2563eb;">Seçenek</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 12px;">Favicon</td>
+                    <td style="padding: 12px;">32x32px</td>
+                    <td style="padding: 12px;">Option 4 (Icon)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 12px;">Navigation Bar</td>
+                    <td style="padding: 12px;">150-200px</td>
+                    <td style="padding: 12px;">Option 2 (Geometrik)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 12px;">Footer</td>
+                    <td style="padding: 12px;">100-120px</td>
+                    <td style="padding: 12px;">Option 1 (B) veya 2</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px;">Sosyal Medya</td>
+                    <td style="padding: 12px;">200-500px</td>
+                    <td style="padding: 12px;">Option 2 (Geometrik)</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p><strong>msduoyazilim - Bursa Yazılım Firması</strong></p>
+            <p>Professional Logo Design & Branding Guide</p>
+            <p style="margin-top: 20px; color: #94a3b8; font-size: 0.9rem;">© 2026 - Tüm Hakları Saklıdır | <a href="LOGO_GUIDE.md" style="color: #2563eb; text-decoration: none;">Detaylı Rehberi Oku</a></p>
+        </footer>
+    </div>
+</body>
+</html>

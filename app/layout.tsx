@@ -14,32 +14,36 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://msduoyazilim.com"),
   title: {
-    default: "Bursa Yazılım Firması | msduoyazilim - Bursa Yazılım Geliştirme",
-    template: "%s | msduoyazilim - Bursa Yazılım",
+    default: "Bursa Yazılım Firması | msduoyazilim - Bursa Yazılım Geliştirme Hizmetleri",
+    template: "%s | msduoyazilim Bursa Yazılım",
   },
   description:
-    "Bursa yazılım firması msduoyazilim ile profesyonel web sitesi, mobil uygulama geliştirme ve yazılım çözümleri. Bursa yazılım ekibi ile React, Next.js, Node.js ile kurumsal yazılım geliştirme hizmetleri. 5+ yıl tecrübe, 50+ başarılı proje.",
+    "Bursa yazılım firması msduoyazilim - Bursa yazılım geliştirme, Bursa yazılım ekibi ile profesyonel web sitesi, mobil uygulama ve e-ticaret çözümleri. Bursa'da yazılım geliştirme hizmetleri, React, Next.js, Node.js. 20+ başarılı proje, güvenilir Bursa yazılım şirketi.",
   keywords: [
     "bursa yazılım",
     "bursa yazılım firması",
     "bursa yazılım şirketi",
     "bursa yazılım geliştirme",
     "bursa yazılım ekibi",
+    "bursa yazılım hizmetleri",
     "yazılım geliştirme bursa",
     "yazılım firması bursa",
+    "yazılım şirketi bursa",
     "bursa web tasarım",
     "bursa web sitesi",
+    "bursa web geliştirme",
+    "bursa web yazılım",
     "mobil uygulama bursa",
     "e-ticaret bursa",
     "web geliştirme bursa",
+    "bursa yazılım ajansı",
+    "bursa yazılımcı",
+    "bursa yazılım uzmanı",
     "react geliştirme bursa",
     "next.js bursa",
     "node.js bursa",
-    "bursa yazılımcı",
-    "bursa yazılım uzmanı",
     "kurumsal yazılım bursa",
-    "bursa web yazılım",
-    "bursa yazılım ajansı",
+    "bursa dijital ajans",
   ],
   authors: [{ name: "msduoyazilim", url: "https://msduoyazilim.com" }],
   creator: "msduoyazilim",
@@ -49,9 +53,9 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     url: "https://msduoyazilim.com",
     siteName: "msduoyazilim - Bursa Yazılım Firması",
-    title: "Bursa Yazılım Firması | msduoyazilim - Profesyonel Yazılım Geliştirme",
+    title: "Bursa Yazılım Firması | msduoyazilim - Bursa Yazılım Geliştirme Hizmetleri",
     description:
-      "Bursa yazılım şirketi msduoyazilim ile profesyonel web ve mobil yazılım geliştirme. Bursa yazılım ekibi ile 50+ başarılı proje.",
+      "Bursa yazılım ekibi msduoyazilim - Bursa yazılım firması olarak profesyonel web ve mobil yazılım geliştirme hizmetleri sunuyoruz. Bursa'da yazılım geliştirme, e-ticaret, web tasarım çözümleri.",
     images: [
       {
         url: "/og-image.png",
@@ -69,9 +73,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bursa Yazılım Firması | msduoyazilim",
+    title: "Bursa Yazılım Firması | msduoyazilim - Bursa Yazılım Ekibi",
     description:
-      "Bursa'da profesyonel web ve mobil yazılım geliştirme hizmetleri. Bursa yazılım ekibi ile kurumsal çözümler.",
+      "Bursa yazılım geliştirme hizmetleri. Bursa yazılım firması msduoyazilim ile profesyonel web ve mobil uygulama çözümleri.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -87,7 +91,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/logo-icon.svg", type: "image/svg+xml", sizes: "any" },
       { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
@@ -100,7 +104,7 @@ export const metadata: Metadata = {
     other: [
       {
         rel: "mask-icon",
-        url: "/favicon.svg",
+        url: "/logo-icon.svg",
         color: "#2563eb",
       },
     ],
@@ -154,13 +158,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": ["SoftwareCompany", "LocalBusiness"],
-              "name": "msduoyazilim",
+              "@type": ["SoftwareCompany", "LocalBusiness", "ProfessionalService"],
+              "name": "msduoyazilim - Bursa Yazılım Firması",
+              "alternateName": ["msduoyazilim", "msduoyazilim", "Bursa Yazılım"],
               "url": "https://msduoyazilim.com",
               "logo": "https://msduoyazilim.com/logo.png",
               "image": "https://msduoyazilim.com/og-image.png",
               "description":
-                "Bursa merkezli profesyonel web ve mobil uygulama geliştirme firması.",
+                "Bursa yazılım firması msduoyazilim - Bursa yazılım geliştirme, Bursa yazılım ekibi ile profesyonel web sitesi, mobil uygulama ve e-ticaret çözümleri sunuyoruz.",
               "telephone": "+90-535-529-7508",
               "email": "info@msduoyazilim.com",
               "foundingDate": "2020",
@@ -175,15 +180,27 @@ export default function RootLayout({
                 "addressCountry": "TR",
                 "postalCode": "16000",
               },
-              "areaServed": {
-                "@type": "Country",
-                "name": "Türkiye",
-              },
+              "areaServed": [
+                {
+                  "@type": "City",
+                  "name": "Bursa"
+                },
+                {
+                  "@type": "Region",
+                  "name": "Marmara"
+                },
+                {
+                  "@type": "Country",
+                  "name": "Türkiye"
+                }
+              ],
               "priceRange": "$$",
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.9",
-                "reviewCount": "120"
+                "reviewCount": "120",
+                "bestRating": "5",
+                "worstRating": "1"
               },
               "sameAs": [
                 "https://www.instagram.com/INSTAGRAM",
@@ -199,30 +216,65 @@ export default function RootLayout({
                 "availableLanguage": ["tr", "en"]
               },
               "knowsAbout": [
+                "Bursa Yazılım",
                 "Web Development",
                 "Mobile App Development",
                 "E-Commerce Solutions",
                 "React",
                 "Next.js",
-                "Node.js"
+                "Node.js",
+                "TypeScript"
               ],
               "service": [
                 {
                   "@type": "Service",
-                  "name": "Web Site Geliştirme",
-                  "description": "Modern web siteleri ve e-ticaret platformları"
+                  "name": "Bursa Web Site Geliştirme",
+                  "description": "Bursa'da modern web siteleri, e-ticaret platformları ve kurumsal uygulamalar geliştirme",
+                  "areaServed": "Bursa",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "msduoyazilim"
+                  }
                 },
                 {
                   "@type": "Service",
-                  "name": "Mobil Uygulama Geliştirme",
-                  "description": "iOS ve Android mobil uygulamalar"
+                  "name": "Bursa Mobil Uygulama Geliştirme",
+                  "description": "iOS ve Android mobil uygulamalar, React Native ile çapraz platform geliştirme",
+                  "areaServed": "Bursa",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "msduoyazilim"
+                  }
                 },
                 {
                   "@type": "Service",
-                  "name": "Yazılım Konsültasyonu",
-                  "description": "Kurumsal yazılım çözümleri"
+                  "name": "Bursa Yazılım Konsültasyonu",
+                  "description": "Kurumsal yazılım çözümleri, teknik danışmanlık ve proje yönetimi",
+                  "areaServed": "Bursa",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "msduoyazilim"
+                  }
                 }
-              ]
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Bursa Yazılım Hizmetleri",
+                "itemListElement": [
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Web Geliştirme"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "Mobil Uygulama"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "E-Ticaret"
+                  }
+                ]
+              }
             }),
           }}
         />
