@@ -3,7 +3,7 @@ export { metadata } from "./metadata";
 const entegrasyonSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "ERP Entegrasyon Çözümleri | MSYazılımDuo Bursa",
+  name: "ERP Entegrasyon Çözümleri | msduoyazilim Bursa",
   description:
     "Bursa'da ERP entegrasyon, API geliştirme ve sistem entegrasyon hizmetleri. SAP, Logo, Mikro entegrasyonu.",
   url: "https://msduoyazilim.com/entegrasyon",
@@ -13,8 +13,8 @@ const entegrasyonSchema = {
     description: "Profesyonel ERP entegrasyon çözümleri ve API geliştirme hizmetleri",
     provider: {
       "@type": "Organization",
-      name: "MSYazılımDuo",
-      alternateName: "msduoyazilim",
+      name: "msduoyazilim",
+      alternateName: "msduo yazılım",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Bursa",

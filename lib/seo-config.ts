@@ -1,8 +1,8 @@
-// SEO Configuration for MSYazılımDuo
+// SEO Configuration for msduoyazilim
 export const seoConfig = {
-  siteName: "MSYazılımDuo - Bursa Yazılım Firması",
+  siteName: "msduoyazilim - Bursa Yazılım Firması",
   baseUrl: "https://msduoyazilim.com",
-  description: "Bursa yazılım firması MSYazılımDuo - Bursa yazılım geliştirme, Bursa yazılım ekibi ile profesyonel web sitesi, mobil uygulama ve e-ticaret çözümleri. Bursa'da yazılım geliştirme hizmetleri.",
+  description: "Bursa yazılım firması msduoyazilim - Bursa yazılım geliştirme, Bursa yazılım ekibi ile profesyonel web sitesi, mobil uygulama ve e-ticaret çözümleri. Bursa'da yazılım geliştirme hizmetleri.",
   
   // Contact information
   contact: {
@@ -13,7 +13,7 @@ export const seoConfig = {
 
   // Organization schema
   organization: {
-    name: "MSYazılımDuo",
+    name: "msduoyazilim",
     foundingDate: "2020",
     location: "Bursa, Turkey",
     rating: {

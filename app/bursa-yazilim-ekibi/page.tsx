@@ -100,7 +100,7 @@ export default function BursaYazilimEkibiPage() {
             </span>
             <br />
             <span className="text-3xl sm:text-4xl md:text-5xl bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
-              MSYazılımDuo
+              msduoyazilim
             </span>
           </motion.h1>
           

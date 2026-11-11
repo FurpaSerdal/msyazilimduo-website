@@ -14,7 +14,7 @@ export default function AboutSection() {
           className="text-center mb-12"
         >
           <span className="inline-block text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-100 px-3.5 py-1 rounded-full mb-3">
-            Neden MSYazılımDuo?
+            Neden msduoyazilim?
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Bursa Yazılım Firması Olarak Avantajlarımız</h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto">

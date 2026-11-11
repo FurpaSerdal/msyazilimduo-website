@@ -159,7 +159,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": ["SoftwareCompany", "LocalBusiness", "ProfessionalService"],
               "name": "msduoyazilim - Bursa Yazılım Firması",
-              "alternateName": ["msduoyazilim", "MSYazılımDuo", "Bursa Yazılım"],
+              "alternateName": ["msduoyazilim", "msduo yazılım"],
               "url": "https://msduoyazilim.com",
               "logo": "https://msduoyazilim.com/icon-512.png",
               "image": "https://msduoyazilim.com/og-image.png",

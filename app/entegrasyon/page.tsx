@@ -387,7 +387,7 @@ export default function EntegrasyonPage() {
       <section className="py-16 px-4 sm:px-6 bg-gradient-to-b from-white via-blue-50/10 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Neden MSYazılımDuo?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Neden msduoyazilim?</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
               Bursa&apos;da ERP entegrasyon konusunda neden bizi tercih etmelisiniz?
             </p>

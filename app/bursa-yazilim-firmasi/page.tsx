@@ -102,7 +102,7 @@ export default function BursaYazilimFirmasiPage() {
   const testimonials = [
     {
       company: "E-Ticaret Firması",
-      text: "MSYazılımDuo ile çalışmak harika bir deneyimdi. Web sitemizi modern bir tasarımla yenilediler ve satışlarımız %40 arttı.",
+      text: "msduoyazilim ile çalışmak harika bir deneyimdi. Web sitemizi modern bir tasarımla yenilediler ve satışlarımız %40 arttı.",
       rating: 5,
       industry: "E-Ticaret",
     },
@@ -167,12 +167,12 @@ export default function BursaYazilimFirmasiPage() {
             </span>
             <br />
             <span className="text-3xl sm:text-4xl md:text-5xl bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
-              MSYazılımDuo
+              msduoyazilim
             </span>
           </motion.h1>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            <strong>Bursa yazılım firması</strong> MSYazılımDuo olarak 2020&apos;den beri web sitesi, 
+            <strong>Bursa yazılım firması</strong> msduoyazilim olarak 2020&apos;den beri web sitesi, 
             mobil uygulama ve kurumsal yazılım çözümleri sunuyoruz. <strong>Bursa yazılım şirketi</strong> 
             olarak 50+ başarılı proje, profesyonel ekip ve garantili hizmet ile yanınızdayız.
           </p>
@@ -233,7 +233,7 @@ export default function BursaYazilimFirmasiPage() {
               Hakkımızda
             </h2>
             <p className="text-lg text-gray-700 mb-4">
-              <strong>MSYazılımDuo</strong>, Bursa&apos;da faaliyet gösteren profesyonel bir 
+              <strong>msduoyazilim</strong>, Bursa&apos;da faaliyet gösteren profesyonel bir 
               <strong> yazılım şirketi</strong>dir. 2020 yılında kurulan firmamız, web sitesi, 
               mobil uygulama ve kurumsal yazılım geliştirme alanlarında hizmet vermektedir.
             </p>
@@ -332,7 +332,7 @@ export default function BursaYazilimFirmasiPage() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Neden MSYazılımDuo?
+            Neden msduoyazilim?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             <strong>Yazılım firması Bursa</strong> arayanlar için en iyi seçim
@@ -414,7 +414,7 @@ export default function BursaYazilimFirmasiPage() {
             Projeniz İçin Hemen İletişime Geçin!
           </h2>
           <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-            <strong>Bursa yazılım firması</strong> MSYazılımDuo ile çalışarak projelerinizi 
+            <strong>Bursa yazılım firması</strong> msduoyazilim ile çalışarak projelerinizi 
             hayata geçirin. Ücretsiz danışmanlık ve teklif için bizimle iletişime geçin.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

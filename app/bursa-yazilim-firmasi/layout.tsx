@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Bursa Yazılım Şirketi | Kurumsal Referanslar ve İş Ortaklığı',
   description:
-    '2020\'den beri Bursa\'da faaliyet gösteren güvenilir yazılım şirketi MSYazılımDuo. Kurumsal referanslarımız, %98 müşteri memnuniyeti ve uzun vadeli bakım desteği.',
+    '2020\'den beri Bursa\'da faaliyet gösteren güvenilir yazılım şirketi msduoyazilim. Kurumsal referanslarımız, %98 müşteri memnuniyeti ve uzun vadeli bakım desteği.',
   keywords: [
     'bursa yazılım şirketi',
     'bursa web yazılım şirketi',

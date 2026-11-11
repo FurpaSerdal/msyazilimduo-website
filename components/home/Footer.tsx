@@ -39,7 +39,7 @@ export default function Footer({ setShowWhatsappModal }: FooterProps) {
       return;
     }
     window.open(
-      `https://wa.me/905355297508?text=${encodeURIComponent("Merhaba, MSYazılımDuo hakkında bilgi almak istiyorum.")}`,
+      `https://wa.me/905355297508?text=${encodeURIComponent("Merhaba, msduoyazilim hakkında bilgi almak istiyorum.")}`,
       "_blank",
       "noopener,noreferrer"
     );
@@ -53,14 +53,14 @@ export default function Footer({ setShowWhatsappModal }: FooterProps) {
             <div className="flex items-center gap-3 mb-4">
               <Image
                 src="/logo-icon.svg"
-                alt="MSYazılımDuo logo"
+                alt="msduoyazilim logo"
                 width={42}
                 height={42}
                 className="w-10 h-10 rounded-xl shadow-lg flex-shrink-0"
               />
               <div className="min-w-0">
                 <h3 className="font-bold text-lg sm:text-xl">msduoyazilim</h3>
-                <p className="text-cyan-300 text-xs sm:text-sm truncate">MSYazılımDuo · Bursa Yazılım</p>
+                <p className="text-cyan-300 text-xs sm:text-sm truncate">Bursa Yazılım Ekibi</p>
               </div>
             </div>
             <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
@@ -127,7 +127,7 @@ export default function Footer({ setShowWhatsappModal }: FooterProps) {
 
         <div className="pt-8 border-t border-slate-800 text-center">
           <p className="text-gray-400 text-sm">
-            © {currentYear} MSYazılımDuo - Bursa Yazılım Firması. Tüm hakları saklıdır.
+            © {currentYear} msduoyazilim - Bursa Yazılım Firması. Tüm hakları saklıdır.
           </p>
           <p className="text-gray-500 text-xs mt-2">
             Bursa Yazılım | Bursa Web Tasarım | Bursa Yazılım Geliştirme | Bursa Mobil Uygulama

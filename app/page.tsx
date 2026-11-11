@@ -9,7 +9,7 @@ const faqSchema = {
       name: "Bursa yazılım firması olarak hangi hizmetleri sunuyorsunuz?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "MSYazılımDuo (msduoyazilim) olarak Bursa yazılım geliştirme, Bursa web tasarım, mobil uygulama geliştirme, e-ticaret çözümleri ve özel yazılım projeleri sunuyoruz. Bursa'daki işletmelere yerel destek ve profesyonel çözümler sağlıyoruz.",
+        text: "msduoyazilim olarak Bursa yazılım geliştirme, Bursa web tasarım, mobil uygulama geliştirme, e-ticaret çözümleri ve özel yazılım projeleri sunuyoruz. Bursa'daki işletmelere yerel destek ve profesyonel çözümler sağlıyoruz.",
       },
     },
     {

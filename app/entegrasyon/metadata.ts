@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://msduoyazilim.com"),
-  title: "ERP Entegrasyon Çözümleri | MSYazılımDuo Bursa",
+  title: "ERP Entegrasyon Çözümleri | msduoyazilim Bursa",
   description:
     "Bursa'da ERP entegrasyon, API geliştirme ve sistem entegrasyon hizmetleri. SAP, Logo, Mikro entegrasyonu ve veri senkronizasyon çözümleri.",
   keywords: [
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
     url: "https://msduoyazilim.com/entegrasyon",
-    siteName: "MSYazılımDuo",
-    title: "ERP Entegrasyon Çözümleri | MSYazılımDuo",
+    siteName: "msduoyazilim",
+    title: "ERP Entegrasyon Çözümleri | msduoyazilim",
     description:
       "Bursa'da ERP entegrasyon, API geliştirme ve sistem entegrasyon hizmetleri. SAP, Logo, Mikro entegrasyonu.",
     images: [
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "MSYazılımDuo ERP Entegrasyon",
+        alt: "msduoyazilim ERP Entegrasyon",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ERP Entegrasyon Çözümleri | MSYazılımDuo",
+    title: "ERP Entegrasyon Çözümleri | msduoyazilim",
     description:
       "Bursa'da ERP entegrasyon, API geliştirme ve sistem entegrasyon hizmetleri. SAP, Logo, Mikro entegrasyonu.",
     images: ["/og-image.png"],

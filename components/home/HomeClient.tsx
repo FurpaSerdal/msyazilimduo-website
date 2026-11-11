@@ -92,7 +92,7 @@ export default function HomeClient() {
   }, []);
 
   const sendWhatsAppMessage = useCallback(() => {
-    const message = whatsappMessage || 'Merhaba, MSYazılımDuo hakkında bilgi almak istiyorum.';
+    const message = whatsappMessage || 'Merhaba, msduoyazilim hakkında bilgi almak istiyorum.';
     const phoneNumber = '905355297508';
     window.open(
       `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
