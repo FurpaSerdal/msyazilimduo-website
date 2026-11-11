@@ -4,6 +4,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  overflow-x: clip;
 }
 
 @media (max-width: 768px) {
@@ -16,6 +17,7 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 /* Touch optimization */

@@ -1,61 +1,45 @@
 "use client";
 
-import { useState, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Code2, Mail, Phone, CheckCircle, ArrowRight,
+import { useState, useCallback } from 'react';
+import dynamic from 'next/dynamic';
+import { MotionConfig } from 'framer-motion';
+import {
+  Code2, CheckCircle, ArrowRight,
   Zap, Database, RefreshCw, GitBranch, Globe, Server,
   Smartphone, Truck, CreditCard, BarChart, Settings,
   Target, Building, ShieldCheck, Clock, TrendingUp,
-  Users, Award, MessageCircle, Send, X, ChevronRight
+  Users, Award, MessageCircle
 } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
+import Navigation from '@/components/layout/Navigation';
+import Footer from '@/components/home/Footer';
+
+const FloatingButtons = dynamic(() => import('@/components/ui/FloatingButtons'), { ssr: false });
+const Notification = dynamic(() => import('@/components/ui/Notification'), { ssr: false });
 
 export default function EntegrasyonPage() {
-  const currentYear = useMemo(() => new Date().getUTCFullYear(), []);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [whatsappMessage, setWhatsappMessage] = useState('');
   const [notification, setNotification] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
   const [showWhatsappModal, setShowWhatsappModal] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
-  // Scroll takibi (passive)
-  useEffect(() => {
-    const handleScroll = () => {
-      const nextScrolled = window.scrollY > 50;
-      setScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
-      setMobileMenuOpen((prev) => (prev ? false : prev));
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const sendWhatsAppMessage = () => {
-    const message = whatsappMessage || 'Merhaba, ERP entegrasyon hizmetleriniz hakkında bilgi almak istiyorum.';
+  const sendWhatsAppMessage = useCallback(() => {
+    const message = whatsappMessage || 'Merhaba, ERP entegrasyon hizmetleriniz hakk?nda bilgi almak istiyorum.';
     const phoneNumber = '905355297508';
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
     setShowWhatsappModal(false);
     setWhatsappMessage('');
-  };
+  }, [whatsappMessage]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Form verilerini al
-    const form = e.target as HTMLFormElement;
+    const form = e.currentTarget;
     const formData = new FormData(form);
-    
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.get('name'),
           email: formData.get('email'),
@@ -64,201 +48,44 @@ export default function EntegrasyonPage() {
           erpSystem: formData.get('erpSystem'),
           message: formData.get('message'),
           source: 'entegrasyon',
-          location: 'Bursa'
+          location: 'Bursa',
         }),
       });
 
-      if (!response.ok) throw new Error('Gönderim başarısız');
+      if (!response.ok) throw new Error('G?nderim ba?ar?s?z');
 
       setNotification({
         type: 'success',
-        message: 'Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.'
+        message: 'Mesaj?n?z ba?ar?yla g?nderildi! En k?sa s?rede sizinle ileti?ime ge?ece?iz.',
       });
-      
       form.reset();
     } catch {
       setNotification({
         type: 'error',
-        message: 'Bir hata oluştu. Lütfen tekrar deneyin veya WhatsApp üzerinden iletişime geçin.'
+        message: 'Bir hata olu?tu. L?tfen tekrar deneyin veya WhatsApp ?zerinden ileti?ime ge?in.',
       });
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setNotification(null), 5000);
     }
-  };
+  }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/20 to-white" suppressHydrationWarning>
-      {/* Notification Toast */}
-      <AnimatePresence>
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/20 to-white overflow-x-clip" suppressHydrationWarning>
         {notification && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed top-4 right-4 left-4 md:left-auto md:right-8 md:w-auto z-[100]"
-          >
-            <div className={`flex items-start gap-4 px-6 py-4 rounded-xl shadow-2xl border ${
-              notification.type === 'success'
-                ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200'
-                : 'bg-gradient-to-r from-red-50 to-rose-50 border-red-200'
-            }`}>
-              <div className={notification.type === 'success' ? 'text-green-600' : 'text-red-600'}>
-                {notification.type === 'success' ? (
-                  <CheckCircle className="w-6 h-6" />
-                ) : (
-                  <X className="w-6 h-6" />
-                )}
-              </div>
-              <div className="flex-1">
-                <p className={notification.type === 'success' ? 'text-green-900 font-medium' : 'text-red-900 font-medium'}>
-                  {notification.message}
-                </p>
-              </div>
-              <button
-                onClick={() => setNotification(null)}
-                className={notification.type === 'success' ? 'text-green-600 hover:text-green-800' : 'text-red-600 hover:text-red-800'}
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-          </motion.div>
+          <Notification notification={notification} onClose={() => setNotification(null)} />
         )}
-      </AnimatePresence>
 
-      {/* WhatsApp Modal */}
-      <AnimatePresence>
-        {showWhatsappModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4"
-            onClick={() => setShowWhatsappModal(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900">ERP Entegrasyon Danışmanlığı</h3>
-                  <p className="text-gray-600 text-sm">WhatsApp üzerinden hemen iletişime geçin</p>
-                </div>
-              </div>
-              
-              <textarea
-                value={whatsappMessage}
-                onChange={(e) => setWhatsappMessage(e.target.value)}
-                placeholder="Entegrasyon ihtiyacınızı kısaca anlatın..."
-                className="w-full border border-gray-300 rounded-lg p-3 mb-4 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
-                rows={3}
-              />
-              
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setShowWhatsappModal(false)}
-                  className="flex-1 border border-gray-300 text-gray-700 py-2.5 rounded-lg font-medium hover:bg-gray-50 transition-colors"
-                >
-                  İptal
-                </button>
-                <button
-                  onClick={sendWhatsAppMessage}
-                  className="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white py-2.5 rounded-lg font-medium hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  <Send className="w-4 h-4" />
-                  Gönder
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <FloatingButtons
+          showWhatsappModal={showWhatsappModal}
+          whatsappMessage={whatsappMessage}
+          setWhatsappMessage={setWhatsappMessage}
+          setShowWhatsappModal={setShowWhatsappModal}
+          sendWhatsAppMessage={sendWhatsAppMessage}
+        />
 
-      {/* Navigation */}
-      <nav className={`w-full fixed top-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-lg' 
-          : 'bg-white/90 backdrop-blur-sm'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-sm">
-              <Image src="/logo-icon.svg" alt="MSYazılımDuo logo" width={36} height={36} className="w-9 h-9 rounded-lg" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-lg text-gray-900">MSYazılımDuo</span>
-              <span className="text-[10px] text-gray-500 font-medium">Bursa Yazılım Ekibi</span>
-            </div>
-          </Link>
-          
-          <div className="hidden md:flex items-center gap-1">
-            <Link href="/#about" className="px-4 py-2 rounded-lg font-medium text-sm text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors">
-              Ana Sayfa
-            </Link>
-            <Link href="/entegrasyon" className="px-4 py-2 rounded-lg font-medium text-sm bg-blue-50 text-blue-600">
-              Entegrasyon
-            </Link>
-            <a 
-              href="#iletisim" 
-              className="ml-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 py-2.5 rounded-lg font-medium text-sm hover:shadow-lg transition-all duration-300"
-            >
-              Teklif Al
-            </a>
-          </div>
-
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            aria-label="Menü"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-t border-gray-100 overflow-hidden shadow-lg"
-            >
-              <div className="px-4 py-3 space-y-1">
-                <Link 
-                  href="/" 
-                  className="block py-3 px-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Ana Sayfa
-                </Link>
-                <Link 
-                  href="/entegrasyon" 
-                  className="block py-3 px-2 text-blue-600 bg-blue-50 font-medium rounded-lg"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Entegrasyon
-                </Link>
-                <a 
-                  href="#iletisim"
-                  className="block bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-medium text-center hover:shadow-md transition-all duration-300 mt-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Teklif Al
-                </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
-
+        <Navigation contactTargetId="iletisim" />
       {/* Hero Section */}
       <section className="pt-28 pb-16 px-4 sm:px-6 max-w-7xl mx-auto">
         <div className="text-center mb-12">
@@ -267,12 +94,12 @@ export default function EntegrasyonPage() {
             <span className="text-xs font-semibold">Bursa ERP Entegrasyon</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">
             <span className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text text-transparent">
               ERP Entegrasyon
             </span>
             <br />
-            <span className="text-3xl sm:text-4xl md:text-5xl">Profesyonel Çözümler</span>
+            <span className="text-2xl sm:text-4xl md:text-5xl">Profesyonel Çözümler</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
@@ -651,7 +478,7 @@ export default function EntegrasyonPage() {
                     type="text"
                     placeholder="İsminiz"
                     required
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
                 </div>
                 
@@ -663,7 +490,7 @@ export default function EntegrasyonPage() {
                     type="tel"
                     placeholder="05xx xxx xx xx"
                     required
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
                 </div>
               </div>
@@ -676,7 +503,7 @@ export default function EntegrasyonPage() {
                   type="email"
                   placeholder="email@example.com"
                   required
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 />
               </div>
 
@@ -687,7 +514,7 @@ export default function EntegrasyonPage() {
                   name="company"
                   type="text"
                   placeholder="Şirket adınız"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 />
               </div>
 
@@ -696,7 +523,7 @@ export default function EntegrasyonPage() {
                 <select 
                   id="erpSystem"
                   name="erpSystem"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 >
                   <option value="">Seçiniz</option>
                   <option value="sap">SAP</option>
@@ -715,7 +542,7 @@ export default function EntegrasyonPage() {
                   name="message"
                   placeholder="ERP sisteminizi hangi platformlarla entegre etmek istiyorsunuz? (e-ticaret, CRM, kargo, vb.)"
                   rows={4}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
                 />
               </div>
 
@@ -741,75 +568,8 @@ export default function EntegrasyonPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <Image src="/logo-icon.svg" alt="MSYazılımDuo logo" width={32} height={32} className="w-8 h-8 rounded-lg" />
-                </div>
-                <div>
-                  <h3 className="font-bold">MSYazılımDuo</h3>
-                  <p className="text-blue-200 text-xs">Bursa Yazılım Ekibi</p>
-                </div>
-              </div>
-              <p className="text-gray-300 text-sm">
-                Bursa merkezli ERP entegrasyon ve yazılım geliştirme ekibi.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">ERP Entegrasyon</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>SAP Entegrasyon</li>
-                <li>Logo Entegrasyon</li>
-                <li>Mikro Entegrasyon</li>
-                <li>E-Ticaret Entegrasyon</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">Hızlı Bağlantılar</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li><Link href="/" className="hover:text-white transition-colors">Ana Sayfa</Link></li>
-                <li><Link href="/entegrasyon" className="hover:text-white transition-colors">Entegrasyon</Link></li>
-                <li><a href="#iletisim" className="hover:text-white transition-colors">Teklif Al</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">Bursa&apos;dan Ulaşın</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li className="flex items-center gap-2">
-                  <Phone className="w-3 h-3" />
-                  +90 (535) 529 75 08
-                </li>
-                <li className="flex items-center gap-2">
-                  <Mail className="w-3 h-3" />
-                  info@msduoyazilim.com
-                </li>
-                <li>
-                  <button 
-                    onClick={() => setShowWhatsappModal(true)}
-                    className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors"
-                  >
-                    <MessageCircle className="w-3 h-3" />
-                    WhatsApp&apos;tan Yaz
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="pt-8 border-t border-gray-700 text-center">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} MSYazılımDuo - Bursa ERP Entegrasyon. Tüm hakları saklıdır.
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
+        <Footer setShowWhatsappModal={setShowWhatsappModal} />
+      </div>
+    </MotionConfig>
   );
 }

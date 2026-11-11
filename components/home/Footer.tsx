@@ -59,8 +59,8 @@ export default function Footer({ setShowWhatsappModal }: FooterProps) {
                 className="w-10 h-10 rounded-xl shadow-lg flex-shrink-0"
               />
               <div className="min-w-0">
-                <h3 className="font-bold text-lg sm:text-xl">MSYazılımDuo</h3>
-                <p className="text-cyan-300 text-xs sm:text-sm truncate">Bursa Yazılım Ekibi</p>
+                <h3 className="font-bold text-lg sm:text-xl">msduoyazilim</h3>
+                <p className="text-cyan-300 text-xs sm:text-sm truncate">MSYazılımDuo · Bursa Yazılım</p>
               </div>
             </div>
             <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">

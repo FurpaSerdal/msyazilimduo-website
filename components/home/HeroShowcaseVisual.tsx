@@ -33,7 +33,7 @@ export default function HeroShowcaseVisual() {
         {/* Window Content */}
         <div className="p-5 sm:p-6 space-y-5">
           {/* Code / Architecture Snippet */}
-          <div className="rounded-xl bg-slate-900/80 border border-slate-800/80 p-4 font-mono text-xs leading-relaxed">
+          <div className="rounded-xl bg-slate-900/80 border border-slate-800/80 p-3.5 sm:p-4 font-mono text-[11px] sm:text-xs leading-relaxed overflow-x-auto">
             <div className="flex items-center justify-between text-[11px] text-slate-400 mb-2">
               <span>platform.config.ts</span>
               <span className="text-cyan-400">TypeScript · Next.js</span>
@@ -59,7 +59,7 @@ export default function HeroShowcaseVisual() {
           </div>
 
           {/* Analytics & Status Row */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {/* Performance Chart Card */}
             <div className="rounded-xl bg-gradient-to-br from-slate-900 to-slate-900/70 border border-slate-800 p-3.5">
               <div className="flex items-center justify-between mb-2">

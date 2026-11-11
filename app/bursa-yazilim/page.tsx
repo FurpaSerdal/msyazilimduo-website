@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Navigation from '@/components/layout/Navigation';
+import Footer from '@/components/home/Footer';
 import { 
   ArrowRight, CheckCircle, Star, Award, Users, Clock, 
   Code2, Smartphone, Globe, Server, Zap, Shield,
@@ -10,7 +12,9 @@ import {
 
 export default function BursaYazilimPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
+    <>
+      <Navigation />
+      <main className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" suppressHydrationWarning>
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl animate-pulse" suppressHydrationWarning></div>
@@ -40,7 +44,7 @@ export default function BursaYazilimPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900"
           >
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Bursa Yazılım Firması
@@ -304,5 +308,7 @@ export default function BursaYazilimPage() {
         </Link>
       </section>
     </main>
+    <Footer />
+    </>
   );
 }

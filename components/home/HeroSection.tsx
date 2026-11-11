@@ -22,23 +22,23 @@ interface HeroSectionProps {
 
 export default function HeroSection({ scrollToSection, setShowWhatsappModal }: HeroSectionProps) {
   return (
-    <section id="home" className="pt-28 pb-16 px-4 sm:px-6 max-w-7xl mx-auto relative z-10" suppressHydrationWarning>
+    <section id="home" className="pt-24 sm:pt-28 pb-14 sm:pb-16 px-4 sm:px-6 max-w-7xl mx-auto relative z-10" suppressHydrationWarning>
       {/* Split Hero */}
-      <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16">
+      <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-12 sm:mb-16">
         <div className="lg:col-span-6 text-center lg:text-left">
           {/* Bursa Badge */}
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-4 py-1.5 rounded-full mb-6 border border-blue-200/70 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 px-3.5 sm:px-4 py-1.5 rounded-full mb-5 sm:mb-6 border border-blue-200/70 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-blue-600" />
             <span className="text-xs font-semibold">Bursa&apos;nın Yazılım ve Teknoloji Ekibi</span>
             <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
           </div>
 
-          <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold mb-6 text-gray-900 leading-[1.12] tracking-tight">
+          <h1 className="text-3xl sm:text-5xl xl:text-6xl font-extrabold mb-5 sm:mb-6 text-gray-900 leading-[1.15] tracking-tight">
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent">
               Bursa Yazılım Firması
             </span>
             <br />
-            <span className="text-3xl sm:text-4xl xl:text-[2.75rem] text-gray-900 font-bold">
+            <span className="text-2xl sm:text-4xl xl:text-[2.75rem] text-gray-900 font-bold">
               Modern Dijital Çözümler
             </span>
           </h1>
@@ -100,7 +100,9 @@ export default function HeroSection({ scrollToSection, setShowWhatsappModal }: H
         ].map((stat, index) => (
           <div
             key={index}
-            className="p-4 sm:p-5 bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200/80 hover:border-blue-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-sm flex flex-col items-center text-center group"
+            className={`p-4 sm:p-5 bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-200/80 hover:border-blue-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 shadow-sm flex flex-col items-center text-center group ${
+              index === 4 ? 'col-span-2 sm:col-span-1' : ''
+            }`}
           >
             <div className={`w-10 h-10 rounded-xl ${stat.bg} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
               <stat.icon className="w-5 h-5" />

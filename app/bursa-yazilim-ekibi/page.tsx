@@ -62,7 +62,7 @@ export default function BursaYazilimEkibiPage() {
 
   return (
     <>
-      <Navigation activeSection="home" />
+      <Navigation />
       <main className="min-h-screen bg-gradient-to-b from-white via-indigo-50/30 to-white">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -93,7 +93,7 @@ export default function BursaYazilimEkibiPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-gray-900"
           >
             <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
               Bursa Yazılım Ekibi
