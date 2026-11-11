@@ -6,24 +6,24 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
   reactStrictMode: true,
-  
+
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ["lucide-react"],
+    optimizePackageImports: ["lucide-react", "framer-motion"],
   },
-  
+
   // Image optimization
   images: {
-    formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 31536000, // 1 year
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'msduoyazilim.com',
+        protocol: "https",
+        hostname: "msduoyazilim.com",
       },
       {
-        protocol: 'https',
-        hostname: '**.msduoyazilim.com',
+        protocol: "https",
+        hostname: "**.msduoyazilim.com",
       },
     ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -32,75 +32,64 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  // Headers for SEO and performance
+  // Security & asset caching headers
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         headers: [
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
           },
           {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
           },
           {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
           },
           {
-            key: 'Permissions-Policy',
-            value: 'geolocation=(), microphone=(), camera=()'
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
+            key: "Permissions-Policy",
+            value: "geolocation=(), microphone=(), camera=()",
           },
         ],
       },
       {
-        source: '/api/:path*',
+        source: "/(icon-192\\.png|icon-512\\.png|apple-icon\\.png|logo\\.png|logo-icon\\.svg|favicon\\.svg|og-image\\.png)",
         headers: [
           {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate'
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },
-    ]
+      {
+        source: "/api/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-cache, no-store, must-revalidate",
+          },
+        ],
+      },
+    ];
   },
 
   // Redirects for SEO
   async redirects() {
     return [
       {
-        source: '/sitemap',
-        destination: '/sitemap.xml',
+        source: "/sitemap",
+        destination: "/sitemap.xml",
         permanent: true,
       },
-    ]
-  },
-
-  // Rewrites for cleaner URLs
-  async rewrites() {
-    return {
-      afterFiles: [
-        {
-          source: '/robots.txt',
-          destination: '/robots.txt',
-        },
-        {
-          source: '/sitemap.xml',
-          destination: '/sitemap.xml',
-        },
-      ],
-    }
+    ];
   },
 };
 

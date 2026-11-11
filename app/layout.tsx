@@ -1,5 +1,12 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -134,12 +141,7 @@ export default function RootLayout({
     <html lang="tr">
       <head>
         {/* Performance: Preconnect to external domains */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        
-        {/* Performance: Optimize font loading */}
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
         
         {/* SEO: Additional meta tags */}
         <meta name="theme-color" content="#2563eb" />
@@ -157,7 +159,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": ["SoftwareCompany", "LocalBusiness", "ProfessionalService"],
               "name": "msduoyazilim - Bursa Yazılım Firması",
-              "alternateName": ["msduoyazilim", "msduoyazilim", "Bursa Yazılım"],
+              "alternateName": ["msduoyazilim", "MSYazılımDuo", "Bursa Yazılım"],
               "url": "https://msduoyazilim.com",
               "logo": "https://msduoyazilim.com/icon-512.png",
               "image": "https://msduoyazilim.com/og-image.png",
@@ -199,12 +201,6 @@ export default function RootLayout({
                 "bestRating": "5",
                 "worstRating": "1"
               },
-              "sameAs": [
-                "https://www.instagram.com/INSTAGRAM",
-                "https://www.linkedin.com/company/LINKEDIN",
-                "https://twitter.com/TWITTER",
-                "https://www.facebook.com/FACEBOOK"
-              ],
               "contact": {
                 "@type": "ContactPoint",
                 "telephone": "+90-535-529-7508",
@@ -276,7 +272,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-gray-50 text-gray-800">
+      <body className={`${inter.className} bg-gray-50 text-gray-800`}>
         {children}
       </body>
     </html>

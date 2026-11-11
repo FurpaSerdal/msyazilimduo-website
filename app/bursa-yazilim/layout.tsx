@@ -1,21 +1,20 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Bursa Yazılım Firması | Profesyonel Web ve Mobil Yazılım Hizmetleri',
-  description: 'Bursa yazılım firması MSYazılımDuo ile profesyonel web sitesi, mobil uygulama geliştirme ve yazılım çözümleri. Bursa\'da 20+ başarılı proje, yerel destek ve garantili hizmet.',
+  title: 'Bursa Özel Yazılım & Kurumsal Çözümler',
+  description:
+    'Bursa merkezli işletmeler için özel yazılım, kurumsal web sitesi ve dijital dönüşüm çözümleri. Yerinde teknik destek ve garantili proje teslimi.',
   keywords: [
     'bursa yazılım',
-    'bursa yazılım firması',
-    'bursa yazılım şirketi',
+    'bursa özel yazılım',
+    'bursa kurumsal yazılım',
     'bursa web tasarım',
     'bursa mobil uygulama',
-    'yazılım firması bursa',
-    'web geliştirme bursa',
-    'bursa yazılım geliştirme',
+    'bursa dijital dönüşüm',
   ],
   openGraph: {
-    title: 'Bursa Yazılım Firması | MSYazılımDuo',
-    description: 'Bursa\'nın önde gelen yazılım firması. Web, mobil ve yazılım çözümleri.',
+    title: 'Bursa Özel Yazılım & Kurumsal Çözümler | msduoyazilim',
+    description: 'Bursa işletmelerine özel yazılım, web ve mobil çözümler. Yerel destek, garantili hizmet.',
     url: 'https://msduoyazilim.com/bursa-yazilim',
     type: 'website',
     locale: 'tr_TR',
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Bursa Yazılım Firması - MSYazılımDuo',
+        alt: 'Bursa Özel Yazılım Çözümleri - msduoyazilim',
       },
     ],
   },

@@ -6,8 +6,8 @@ import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/home/Footer';
 import { 
   ArrowRight, CheckCircle, Code2, Smartphone, Globe, 
-  Database, Cloud, Shield, Award, Users, Star,
-  Phone, Mail, Github, Linkedin, Briefcase, GraduationCap
+  Cloud, Shield, Award, Users, Star,
+  Phone, Mail, Briefcase, GraduationCap
 } from 'lucide-react';
 
 export default function BursaYazilimEkibiPage() {
@@ -62,7 +62,7 @@ export default function BursaYazilimEkibiPage() {
 
   return (
     <>
-      <Navigation activeSection="home" scrollToSection={() => {}} />
+      <Navigation activeSection="home" />
       <main className="min-h-screen bg-gradient-to-b from-white via-indigo-50/30 to-white">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -305,7 +305,7 @@ export default function BursaYazilimEkibiPage() {
             href="/#contact"
             className="inline-flex items-center gap-2 bg-white text-indigo-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 hover:scale-105 transition-all"
           >
-            <span>Projenizia Başlayalım</span>
+            <span>Projenize Başlayalım</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>
@@ -345,7 +345,7 @@ export default function BursaYazilimEkibiPage() {
         </motion.div>
       </section>
     </main>
-    <Footer scrollToSection={() => {}} setShowWhatsappModal={() => {}} />
+    <Footer />
     </>
   );
 }

@@ -1,25 +1,21 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Bursa Yazılım Geliştirme | Web ve Mobil Uygulama Hizmetleri',
-  description: 'Bursa yazılım geliştirme hizmetleri ile profesyonel web sitesi, mobil uygulama, e-ticaret ve kurumsal yazılım çözümleri. React, Next.js, Node.js ile modern yazılım geliştirme. Garantili, hızlı ve güvenilir hizmet.',
+  title: 'Bursa Yazılım Geliştirme | Web, E-Ticaret ve Mobil Uygulama',
+  description:
+    'React, Next.js, Node.js ve React Native ile Bursa yazılım geliştirme hizmetleri. Web sitesi, e-ticaret ve mobil uygulama paketleri ve şeffaf geliştirme süreci.',
   keywords: [
     'bursa yazılım geliştirme',
-    'yazılım geliştirme bursa',
     'web geliştirme bursa',
     'mobil uygulama geliştirme bursa',
-    'bursa yazılım hizmetleri',
+    'e-ticaret geliştirme bursa',
     'react geliştirme bursa',
     'next.js bursa',
     'node.js geliştirme',
-    'e-ticaret geliştirme bursa',
-    'kurumsal yazılım bursa',
-    'bursa web yazılım',
-    'yazılım firması bursa',
   ],
   openGraph: {
-    title: 'Bursa Yazılım Geliştirme | MSYazılımDuo',
-    description: 'Profesyonel yazılım geliştirme hizmetleri. Web, mobil ve kurumsal çözümler.',
+    title: 'Bursa Yazılım Geliştirme | Web, E-Ticaret ve Mobil',
+    description: 'React, Next.js ve React Native ile modern web, e-ticaret ve mobil uygulama geliştirme.',
     url: 'https://msduoyazilim.com/bursa-yazilim-gelistirme',
     type: 'website',
     locale: 'tr_TR',
@@ -28,7 +24,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Bursa Yazılım Geliştirme - MSYazılımDuo',
+        alt: 'Bursa Yazılım Geliştirme - msduoyazilim',
       },
     ],
   },

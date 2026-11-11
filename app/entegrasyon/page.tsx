@@ -3,13 +3,14 @@
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Code2, Mail, Phone, MapPin, CheckCircle, ArrowRight,
+  Code2, Mail, Phone, CheckCircle, ArrowRight,
   Zap, Database, RefreshCw, GitBranch, Globe, Server,
   Smartphone, Truck, CreditCard, BarChart, Settings,
   Target, Building, ShieldCheck, Clock, TrendingUp,
   Users, Award, MessageCircle, Send, X, ChevronRight
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function EntegrasyonPage() {
   const currentYear = useMemo(() => new Date().getUTCFullYear(), []);
@@ -20,77 +21,17 @@ export default function EntegrasyonPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Scroll takibi
+  // Scroll takibi (passive)
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      if (mobileMenuOpen) setMobileMenuOpen(false);
+      const nextScrolled = window.scrollY > 50;
+      setScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
+      setMobileMenuOpen((prev) => (prev ? false : prev));
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [mobileMenuOpen]);
-
-  // SEO için JSON-LD
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "ERP Entegrasyon Çözümleri | MSYazılımDuo Bursa",
-      "description": "Bursa'da ERP entegrasyon, API geliştirme ve sistem entegrasyon hizmetleri. SAP, Logo, Mikro entegrasyonu.",
-      "url": "https://msduoyazilim.com/entegrasyon",
-      "mainEntity": {
-        "@type": "Service",
-        "name": "ERP Entegrasyon",
-        "description": "Profesyonel ERP entegrasyon çözümleri ve API geliştirme hizmetleri",
-        "provider": {
-          "@type": "Organization",
-          "name": "MSYazılımDuo",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Bursa",
-            "addressCountry": "TR"
-          }
-        },
-        "areaServed": "Bursa",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Entegrasyon Hizmetleri",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "ERP Entegrasyon"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "API Geliştirme"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Veri Senkronizasyon"
-              }
-            }
-          ]
-        }
-      }
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
   }, []);
 
   const sendWhatsAppMessage = () => {
@@ -135,7 +76,7 @@ export default function EntegrasyonPage() {
       });
       
       form.reset();
-    } catch (error) {
+    } catch {
       setNotification({
         type: 'error',
         message: 'Bir hata oluştu. Lütfen tekrar deneyin veya WhatsApp üzerinden iletişime geçin.'
@@ -249,7 +190,7 @@ export default function EntegrasyonPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-sm">
-              <Code2 className="w-5 h-5 text-white" />
+              <Image src="/logo-icon.svg" alt="MSYazılımDuo logo" width={36} height={36} className="w-9 h-9 rounded-lg" />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-lg text-gray-900">MSYazılımDuo</span>
@@ -335,7 +276,7 @@ export default function EntegrasyonPage() {
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Bursa'da işletmenizin SAP, Logo, Mikro gibi ERP sistemlerini diğer yazılımlarla entegre ediyor, 
+            Bursa&apos;da işletmenizin SAP, Logo, Mikro gibi ERP sistemlerini diğer yazılımlarla entegre ediyor, 
             verimliliğinizi maksimuma çıkarıyoruz.
           </p>
 
@@ -352,7 +293,7 @@ export default function EntegrasyonPage() {
               onClick={() => setShowWhatsappModal(true)}
               className="w-full sm:w-auto group border-2 border-green-200 bg-white text-green-700 px-8 py-3.5 rounded-xl font-semibold hover:border-green-300 hover:bg-green-50 transition-all duration-300 inline-flex items-center justify-center gap-2 text-base"
             >
-              <span>WhatsApp'tan Yaz</span>
+              <span>WhatsApp&apos;tan Yaz</span>
               <MessageCircle className="w-4 h-4 group-hover:scale-110 transition-transform" />
             </button>
           </div>
@@ -440,7 +381,7 @@ export default function EntegrasyonPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Desteklediğimiz ERP Sistemleri</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Bursa'daki işletmelerin kullandığı başlıca ERP sistemleri için entegrasyon çözümleri sunuyoruz
+              Bursa&apos;daki işletmelerin kullandığı başlıca ERP sistemleri için entegrasyon çözümleri sunuyoruz
             </p>
           </div>
 
@@ -570,7 +511,7 @@ export default function EntegrasyonPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Entegrasyon Sürecimiz</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Bursa'daki işletmeniz için 4 adımda profesyonel entegrasyon çözümü
+              Bursa&apos;daki işletmeniz için 4 adımda profesyonel entegrasyon çözümü
             </p>
           </div>
 
@@ -621,7 +562,7 @@ export default function EntegrasyonPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">Neden MSYazılımDuo?</h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Bursa'da ERP entegrasyon konusunda neden bizi tercih etmelisiniz?
+              Bursa&apos;da ERP entegrasyon konusunda neden bizi tercih etmelisiniz?
             </p>
           </div>
 
@@ -807,7 +748,7 @@ export default function EntegrasyonPage() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <Code2 className="w-4 h-4 text-white" />
+                  <Image src="/logo-icon.svg" alt="MSYazılımDuo logo" width={32} height={32} className="w-8 h-8 rounded-lg" />
                 </div>
                 <div>
                   <h3 className="font-bold">MSYazılımDuo</h3>
@@ -839,7 +780,7 @@ export default function EntegrasyonPage() {
             </div>
 
             <div>
-              <h4 className="font-bold mb-4">Bursa'dan Ulaşın</h4>
+              <h4 className="font-bold mb-4">Bursa&apos;dan Ulaşın</h4>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-center gap-2">
                   <Phone className="w-3 h-3" />
@@ -855,7 +796,7 @@ export default function EntegrasyonPage() {
                     className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors"
                   >
                     <MessageCircle className="w-3 h-3" />
-                    WhatsApp'tan Yaz
+                    WhatsApp&apos;tan Yaz
                   </button>
                 </li>
               </ul>

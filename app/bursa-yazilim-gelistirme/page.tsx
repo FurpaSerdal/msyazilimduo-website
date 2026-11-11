@@ -7,8 +7,8 @@ import Footer from '@/components/home/Footer';
 import { 
   ArrowRight, CheckCircle, Code2, Smartphone, Globe, 
   ShoppingCart, Database, Cloud, Shield, Zap,
-  Phone, Mail, Clock, Award, Users, Target,
-  Laptop, Server, Package, Settings
+  Phone, Clock, Award, Users, Target,
+  Package
 } from 'lucide-react';
 
 export default function BursaYazilimGelistirmePage() {
@@ -142,7 +142,7 @@ export default function BursaYazilimGelistirmePage() {
 
   return (
     <>
-      <Navigation activeSection="home" scrollToSection={() => {}} />
+      <Navigation activeSection="home" />
       <main className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -449,7 +449,7 @@ export default function BursaYazilimGelistirmePage() {
         </motion.div>
       </section>
     </main>
-    <Footer scrollToSection={() => {}} setShowWhatsappModal={() => {}} />
+    <Footer />
     </>
   );
 }

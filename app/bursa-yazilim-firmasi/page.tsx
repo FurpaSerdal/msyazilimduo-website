@@ -7,7 +7,7 @@ import Footer from '@/components/home/Footer';
 import { 
   ArrowRight, CheckCircle, Building, Award, Users, Star,
   Phone, Mail, MapPin, Clock, Shield, Zap,
-  Globe, Code2, Smartphone, ShoppingCart, Database, Cloud,
+  Globe, Smartphone, ShoppingCart, Database,
   Target, TrendingUp, Heart, Briefcase
 } from 'lucide-react';
 
@@ -129,7 +129,7 @@ export default function BursaYazilimFirmasiPage() {
 
   return (
     <>
-      <Navigation activeSection="home" scrollToSection={() => {}} />
+      <Navigation activeSection="home" />
       <main className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -152,7 +152,7 @@ export default function BursaYazilimFirmasiPage() {
             className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 px-5 py-2.5 rounded-full mb-6 border border-blue-200/50 shadow-md"
           >
             <Building className="w-4 h-4 text-blue-600" />
-            <span className="text-blue-700 font-semibold text-sm">Bursa'nın Güvenilir Yazılım Şirketi</span>
+            <span className="text-blue-700 font-semibold text-sm">Bursa&apos;nın Güvenilir Yazılım Şirketi</span>
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
           </motion.div>
           
@@ -172,7 +172,7 @@ export default function BursaYazilimFirmasiPage() {
           </motion.h1>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            <strong>Bursa yazılım firması</strong> MSYazılımDuo olarak 2020'den beri web sitesi, 
+            <strong>Bursa yazılım firması</strong> MSYazılımDuo olarak 2020&apos;den beri web sitesi, 
             mobil uygulama ve kurumsal yazılım çözümleri sunuyoruz. <strong>Bursa yazılım şirketi</strong> 
             olarak 50+ başarılı proje, profesyonel ekip ve garantili hizmet ile yanınızdayız.
           </p>
@@ -233,7 +233,7 @@ export default function BursaYazilimFirmasiPage() {
               Hakkımızda
             </h2>
             <p className="text-lg text-gray-700 mb-4">
-              <strong>MSYazılımDuo</strong>, Bursa'da faaliyet gösteren profesyonel bir 
+              <strong>MSYazılımDuo</strong>, Bursa&apos;da faaliyet gösteren profesyonel bir 
               <strong> yazılım şirketi</strong>dir. 2020 yılında kurulan firmamız, web sitesi, 
               mobil uygulama ve kurumsal yazılım geliştirme alanlarında hizmet vermektedir.
             </p>
@@ -387,7 +387,7 @@ export default function BursaYazilimFirmasiPage() {
                   <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
+              <p className="text-gray-700 mb-4 italic">&ldquo;{testimonial.text}&rdquo;</p>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold">
                   {testimonial.company.charAt(0)}
@@ -436,7 +436,7 @@ export default function BursaYazilimFirmasiPage() {
         </motion.div>
       </section>
     </main>
-    <Footer scrollToSection={() => {}} setShowWhatsappModal={() => {}} />
+    <Footer />
     </>
   );
 }

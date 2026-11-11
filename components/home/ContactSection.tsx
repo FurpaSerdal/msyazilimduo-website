@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from 'react';
+// contact form section
 import { motion } from 'framer-motion';
 import { Mail, MailCheck, PhoneCall, MapPin, CheckCircle, ArrowRight } from 'lucide-react';
 
 interface ContactSectionProps {
-  onSubmit: (e: React.FormEvent) => Promise<void>;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
   isSubmitting: boolean;
 }
 
@@ -81,7 +81,7 @@ export default function ContactSection({ onSubmit, isSubmitting }: ContactSectio
               viewport={{ once: true }}
               className="bg-gradient-to-r from-blue-50/80 to-indigo-50/80 backdrop-blur-sm rounded-xl p-6 border border-blue-200/50 shadow-lg"
             >
-              <h4 className="font-bold text-gray-900 mb-4 text-lg">Bursa'da Neden Biz?</h4>
+              <h4 className="font-bold text-gray-900 mb-4 text-lg">Bursa&apos;da Neden Biz?</h4>
               <ul className="space-y-3">
                 {[
                   "Bursa merkezli yerel ekip ve yüz yüze görüşme imkanı",

@@ -65,10 +65,10 @@ export const seoConfig = {
 
   // Social media profiles
   socialLinks: {
-    instagram: "https://www.instagram.com/INSTAGRAM",
-    linkedin: "https://www.linkedin.com/company/LINKEDIN",
-    twitter: "https://twitter.com/TWITTER",
-    facebook: "https://www.facebook.com/FACEBOOK",
+    instagram: "",
+    linkedin: "",
+    twitter: "",
+    facebook: "",
     github: "https://github.com",
   },
 
@@ -141,7 +141,7 @@ export function generateOrganizationSchema() {
       "ratingValue": seoConfig.organization.rating.value,
       "reviewCount": seoConfig.organization.rating.count,
     },
-    "sameAs": Object.values(seoConfig.socialLinks),
+    "sameAs": Object.values(seoConfig.socialLinks).filter(Boolean),
     "contact": {
       "@type": "ContactPoint",
       "telephone": seoConfig.contact.phone,

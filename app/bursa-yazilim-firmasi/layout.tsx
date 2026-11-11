@@ -1,24 +1,20 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Bursa Yazılım Şirketi | Kurumsal Yazılım Çözümleri - MSYazılımDuo',
-  description: 'Bursa yazılım şirketi MSYazılımDuo ile kurumsal web sitesi, e-ticaret, mobil uygulama ve yazılım çözümleri. Bursa\'da 5+ yıllık tecrübe, 50+ başarılı proje. ISO standartlarında hizmet.',
+  title: 'Bursa Yazılım Şirketi | Kurumsal Referanslar ve İş Ortaklığı',
+  description:
+    '2020\'den beri Bursa\'da faaliyet gösteren güvenilir yazılım şirketi MSYazılımDuo. Kurumsal referanslarımız, %98 müşteri memnuniyeti ve uzun vadeli bakım desteği.',
   keywords: [
     'bursa yazılım şirketi',
-    'bursa yazılım firması',
-    'yazılım şirketi bursa',
-    'bursa yazılım',
     'bursa web yazılım şirketi',
-    'kurumsal yazılım bursa',
-    'yazılım firması bursa',
+    'güvenilir yazılım firması bursa',
     'bursa yazılım ajansı',
     'bursa web ajansı',
-    'profesyonel yazılım bursa',
-    'güvenilir yazılım firması bursa',
+    'kurumsal yazılım bursa',
   ],
   openGraph: {
-    title: 'Bursa Yazılım Şirketi | MSYazılımDuo',
-    description: 'Bursa\'nın güvenilir yazılım şirketi. Kurumsal çözümler ve profesyonel hizmet.',
+    title: 'Bursa Yazılım Şirketi | Referanslar ve Kurumsal Hizmetler',
+    description: 'Bursa\'nın güvenilir yazılım şirketi. Kurumsal referanslar, SLA destek ve profesyonel iş ortaklığı.',
     url: 'https://msduoyazilim.com/bursa-yazilim-firmasi',
     type: 'website',
     locale: 'tr_TR',
@@ -27,7 +23,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Bursa Yazılım Şirketi - MSYazılımDuo',
+        alt: 'Bursa Yazılım Şirketi - msduoyazilim',
       },
     ],
   },

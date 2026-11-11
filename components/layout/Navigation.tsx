@@ -3,50 +3,46 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Menu, ChevronRight, ArrowRight } from 'lucide-react';
 
 interface NavigationProps {
-  activeSection: string;
-  scrollToSection: (sectionId: string) => void;
+  activeSection?: string;
+  scrollToSection?: (sectionId: string) => void;
 }
 
-export default function Navigation({ activeSection, scrollToSection }: NavigationProps) {
+export default function Navigation({ activeSection = 'home', scrollToSection }: NavigationProps) {
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      if (mobileMenuOpen) {
-        setMobileMenuOpen(false);
-      }
+      const nextScrolled = window.scrollY > 50;
+      setScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
+      setMobileMenuOpen((prev) => (prev ? false : prev));
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [mobileMenuOpen]);
+  }, []);
 
-  // Mobil menü için özel scroll fonksiyonu
-  const handleMobileScroll = (sectionId: string) => {
+  const navigateToSection = (sectionId: string, delay = 0) => {
     setMobileMenuOpen(false);
-    
-    // Menü kapanma animasyonunun tamamlanmasını bekle ve scroll yap
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        // Dinamik navbar yüksekliğini hesapla
-        const navBar = document.querySelector('nav');
-        const navHeight = navBar ? navBar.offsetHeight : 80;
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navHeight - 10; // 10px extra padding
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+    const hasElement = typeof document !== 'undefined' && Boolean(document.getElementById(sectionId));
+
+    if (hasElement && scrollToSection) {
+      if (delay > 0) {
+        setTimeout(() => scrollToSection(sectionId), delay);
+      } else {
+        scrollToSection(sectionId);
       }
-    }, 300);
+      return;
+    }
+
+    router.push(sectionId === 'home' ? '/' : `/#${sectionId}`);
   };
 
   return (
@@ -61,17 +57,14 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-2.5 cursor-pointer group"
-          onClick={() => {
-            setMobileMenuOpen(false);
-            scrollToSection('home');
-          }}
+          onClick={() => navigateToSection('home')}
         >
           <Image
-            src="/logo-option-2.svg"
-            alt="msduoyazilim"
-            width={48}
-            height={48}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+            src="/logo-icon.svg"
+            alt="msduoyazilim logo"
+            width={44}
+            height={44}
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl shadow-md group-hover:shadow-blue-500/30 group-hover:shadow-lg group-hover:scale-105 transition-all duration-300"
             priority
           />
           <div className="flex flex-col leading-tight">
@@ -97,7 +90,7 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
               return (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => navigateToSection(item.id)}
                   className={`px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
                     activeSection === item.id
                       ? 'bg-blue-50 text-blue-600'
@@ -120,7 +113,7 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
             );
           })}
           <button
-            onClick={() => scrollToSection('contact')}
+            onClick={() => navigateToSection('contact')}
             className="ml-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 py-2.5 rounded-lg font-medium text-sm hover:shadow-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center gap-2 group"
           >
             <span>Ücretsiz Danışmanlık</span>
@@ -160,7 +153,7 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
                   return (
                     <button
                       key={item.id}
-                      onClick={() => handleMobileScroll(item.id)}
+                      onClick={() => navigateToSection(item.id, 300)}
                       className="flex items-center justify-between w-full py-3 px-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 font-medium rounded-lg transition-colors active:bg-blue-100 min-h-[44px]"
                     >
                       <span className="text-base">{item.label}</span>
@@ -182,7 +175,7 @@ export default function Navigation({ activeSection, scrollToSection }: Navigatio
                 );
               })}
               <button
-                onClick={() => handleMobileScroll('contact')}
+                onClick={() => navigateToSection('contact', 300)}
                 className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3.5 px-4 rounded-lg font-semibold hover:shadow-md active:shadow-lg transition-all duration-300 mt-3 flex items-center justify-center gap-2 min-h-[48px] text-base"
               >
                 <span>Ücretsiz Danışmanlık</span>

@@ -32,7 +32,7 @@ export default function BursaYazilimPage() {
             className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 px-5 py-2.5 rounded-full mb-6 border border-blue-200/50 shadow-md"
           >
             <Building className="w-4 h-4 text-blue-600" />
-            <span className="text-blue-700 font-semibold text-sm">Bursa'nın Yazılım Uzmanları</span>
+            <span className="text-blue-700 font-semibold text-sm">Bursa&apos;nın Yazılım Uzmanları</span>
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
           </motion.div>
           

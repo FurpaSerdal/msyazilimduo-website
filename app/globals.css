@@ -12,23 +12,19 @@ html {
   }
 }
 
-/* Optimization für Mobil */
+/* Mobil ve font netliği */
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Touch optimization */
-button, a {
+button,
+a {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Smooth transitions */
-* {
-  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
-}
-
-/* Animation classes */
+/* Animation utilities */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -40,11 +36,33 @@ button, a {
   }
 }
 
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
-/* Prevent layout shift on mobile */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }

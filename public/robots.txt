@@ -1,43 +1,13 @@
-# MSYazılımDuo Robots.txt
-# Optimize for search engine crawling
-
-# Allow all bots
+# msduoyazilim Robots.txt
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Disallow: /*.json$
-Disallow: /*?*
-Disallow: /*#*
 
-# Google specific rules
-User-agent: Googlebot
-Allow: /
-Disallow: /api/
-Crawl-delay: 0
-
-# Bing specific rules
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# Facebook crawler
-User-agent: facebookexternalhit
-Allow: /
-
-# Twitter/X crawler
-User-agent: Twitterbot
-Allow: /
-
-# Rate limiting for aggressive crawlers
+# Aggressive SEO crawlers
 User-agent: AhrefsBot
 User-agent: SemrushBot
 User-agent: MJ12bot
 Crawl-delay: 10
-Request-rate: 1/10s
 
-# Sitemap locations
 Sitemap: https://msduoyazilim.com/sitemap.xml
-
-# Additional configuration
-Request-rate: 1/1s
