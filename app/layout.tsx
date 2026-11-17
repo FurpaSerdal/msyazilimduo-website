@@ -1,10 +1,17 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -65,13 +72,13 @@ export const metadata: Metadata = {
       "Bursa yazılım ekibi msduoyazilim - Bursa yazılım firması olarak profesyonel web ve mobil yazılım geliştirme hizmetleri sunuyoruz. Bursa'da yazılım geliştirme, e-ticaret, web tasarım çözümleri.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.png?v=202611",
         width: 1200,
         height: 630,
         alt: "msduoyazilim Bursa Yazılım Firması",
       },
       {
-        url: "/logo.png",
+        url: "/logo.png?v=202611",
         width: 225,
         height: 225,
         alt: "msduoyazilim Logo",
@@ -83,7 +90,7 @@ export const metadata: Metadata = {
     title: "Bursa Yazılım Firması | msduoyazilim - Bursa Yazılım Ekibi",
     description:
       "Bursa yazılım geliştirme hizmetleri. Bursa yazılım firması msduoyazilim ile profesyonel web ve mobil uygulama çözümleri.",
-    images: ["/og-image.png"],
+    images: ["/og-image.png?v=202611"],
   },
   robots: {
     index: true,
@@ -98,18 +105,20 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
-      { url: "/logo-icon.svg", type: "image/svg+xml", sizes: "any" },
-      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico?v=202611", sizes: "48x48" },
+      { url: "/icon-512.png?v=202611", type: "image/png", sizes: "512x512" },
+      { url: "/logo-icon.svg?v=202611", type: "image/svg+xml", sizes: "any" },
+      { url: "/icon-192.png?v=202611", type: "image/png", sizes: "192x192" },
     ],
+    shortcut: ["/favicon.ico?v=202611"],
     apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-icon.png?v=202611", sizes: "180x180", type: "image/png" },
     ],
     other: [
       {
         rel: "mask-icon",
-        url: "/logo-icon.svg",
-        color: "#2563eb",
+        url: "/logo-icon.svg?v=202611",
+        color: "#0f172a",
       },
     ],
   },
@@ -161,8 +170,8 @@ export default function RootLayout({
               "name": "msduoyazilim - Bursa Yazılım Firması",
               "alternateName": ["msduoyazilim", "msduo yazılım"],
               "url": "https://msduoyazilim.com",
-              "logo": "https://msduoyazilim.com/icon-512.png",
-              "image": "https://msduoyazilim.com/og-image.png",
+              "logo": "https://msduoyazilim.com/icon-512.png?v=202611",
+              "image": "https://msduoyazilim.com/og-image.png?v=202611",
               "description":
                 "Bursa yazılım firması msduoyazilim - Bursa yazılım geliştirme, Bursa yazılım ekibi ile profesyonel web sitesi, mobil uygulama ve e-ticaret çözümleri sunuyoruz.",
               "telephone": "+90-535-529-7508",
@@ -272,7 +281,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} bg-gray-50 text-gray-800`}>
+      <body className={`${inter.className} ${jetbrainsMono.variable} bg-slate-50 text-slate-900 selection:bg-cyan-500 selection:text-slate-950`}>
         {children}
       </body>
     </html>

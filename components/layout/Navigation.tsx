@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { Menu, X, ChevronRight, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronRight, ArrowRight, Terminal } from 'lucide-react';
 
 interface NavigationProps {
   activeSection?: string;
@@ -17,9 +17,9 @@ const navItems = [
   { id: 'home', label: 'Ana Sayfa', type: 'scroll' as const, href: '/' },
   { id: 'about', label: 'Hakkımızda', type: 'scroll' as const, href: '/#about' },
   { id: 'services', label: 'Çözümlerimiz', type: 'scroll' as const, href: '/#services' },
-  { id: 'technologies', label: 'Teknolojiler', type: 'scroll' as const, href: '/#technologies' },
-  { id: 'process', label: 'Süreç', type: 'scroll' as const, href: '/#process' },
-  { id: 'entegrasyon', label: 'Entegrasyon', type: 'link' as const, href: '/entegrasyon' },
+  { id: 'technologies', label: 'Teknoloji Yığını', type: 'scroll' as const, href: '/#technologies' },
+  { id: 'process', label: 'DevOps & Süreç', type: 'scroll' as const, href: '/#process' },
+  { id: 'entegrasyon', label: 'ERP & API', type: 'link' as const, href: '/entegrasyon', badge: 'API' },
 ];
 
 export default function Navigation({
@@ -36,7 +36,7 @@ export default function Navigation({
 
   useEffect(() => {
     const handleScroll = () => {
-      const nextScrolled = window.scrollY > 40;
+      const nextScrolled = window.scrollY > 30;
       setScrolled((prev) => (prev === nextScrolled ? prev : nextScrolled));
       setMobileMenuOpen((prev) => (prev ? false : prev));
     };
@@ -85,12 +85,15 @@ export default function Navigation({
     <nav
       className={`w-full fixed top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-lg'
-          : 'bg-white/80 backdrop-blur-md border-b border-gray-100/80'
+          ? 'bg-slate-950/95 backdrop-blur-xl border-b border-slate-800/90 shadow-xl shadow-slate-950/20'
+          : 'bg-slate-950/90 backdrop-blur-lg border-b border-slate-800/60'
       }`}
     >
+      {/* Top Laser Gradient Line */}
+      <div className="h-[2px] w-full bg-gradient-to-r from-blue-600 via-cyan-400 to-indigo-600" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-        {/* Logo */}
+        {/* Developer Brand Logo */}
         <Link
           href="/"
           onClick={(e) => {
@@ -101,23 +104,33 @@ export default function Navigation({
               setMobileMenuOpen(false);
             }
           }}
-          className="flex items-center gap-2.5 cursor-pointer group"
+          className="flex items-center gap-3 cursor-pointer group"
         >
-          <Image
-            src="/logo-icon.svg"
-            alt="msduoyazilim logo"
-            width={42}
-            height={42}
-            className="w-10 h-10 rounded-xl shadow-md group-hover:shadow-blue-500/30 group-hover:shadow-lg group-hover:scale-105 transition-all duration-300"
-            priority
-          />
+          <div className="relative">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-xl blur opacity-40 group-hover:opacity-80 transition duration-300" />
+            <Image
+              src="/logo-icon.svg?v=202611"
+              alt="msduoyazilim logo"
+              width={42}
+              height={42}
+              className="relative w-10 h-10 rounded-xl shadow-md group-hover:scale-105 transition-all duration-300"
+              priority
+            />
+          </div>
           <div className="flex flex-col leading-tight">
-            <span className="font-bold text-lg tracking-tight text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-              msduoyazilim
-            </span>
-            <span className="text-[10px] text-gray-500 font-semibold mt-0.5">
-              Bursa Yazılım
-            </span>
+            <div className="flex items-center gap-1">
+              <span className="font-mono text-cyan-400 font-bold text-sm">&lt;</span>
+              <span className="font-extrabold text-base sm:text-lg tracking-tight text-white group-hover:text-cyan-300 transition-colors duration-300">
+                msduoyazilim
+              </span>
+              <span className="font-mono text-cyan-400 font-bold text-sm">/&gt;</span>
+            </div>
+            <div className="flex items-center gap-1.5 mt-0.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="font-mono text-[10px] text-slate-400 font-medium tracking-wide">
+                Bursa Software Studio
+              </span>
+            </div>
           </div>
         </Link>
 
@@ -125,10 +138,10 @@ export default function Navigation({
         <div className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => {
             const active = isItemActive(item);
-            const classes = `px-3.5 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
+            const classes = `px-3.5 py-2 rounded-lg font-medium text-sm transition-all duration-200 flex items-center gap-1.5 ${
               active
-                ? 'bg-blue-50 text-blue-600 font-semibold'
-                : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold shadow-sm'
+                : 'text-slate-300 hover:text-white hover:bg-slate-800/70 border border-transparent'
             }`;
 
             if (item.type === 'scroll') {
@@ -139,14 +152,19 @@ export default function Navigation({
                   onClick={() => navigateToSection(item.id)}
                   className={classes}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
                 </button>
               );
             }
 
             return (
               <Link key={item.id} href={item.href} className={classes}>
-                {item.label}
+                <span>{item.label}</span>
+                {item.badge && (
+                  <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">
+                    {item.badge}
+                  </span>
+                )}
               </Link>
             );
           })}
@@ -154,9 +172,10 @@ export default function Navigation({
           <button
             type="button"
             onClick={() => navigateToSection('contact')}
-            className="ml-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2.5 rounded-xl font-medium text-sm hover:shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 flex items-center gap-2 group"
+            className="ml-3 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-cyan-500/25 hover:from-cyan-400 hover:to-indigo-500 transition-all duration-300 flex items-center gap-2 group border border-cyan-400/30"
           >
-            <span>Ücretsiz Danışmanlık</span>
+            <Terminal className="w-3.5 h-3.5 text-cyan-100" />
+            <span>Proje Başlat</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
@@ -166,11 +185,11 @@ export default function Navigation({
           whileTap={{ scale: 0.95 }}
           type="button"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
-          className="lg:hidden text-gray-700 p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          className="lg:hidden text-slate-200 p-2 rounded-lg hover:bg-slate-800 border border-slate-800 transition-colors"
           aria-label="Menü"
           aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {mobileMenuOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5" />}
         </motion.button>
       </div>
 
@@ -181,15 +200,15 @@ export default function Navigation({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-gray-100 overflow-hidden shadow-lg"
+            className="lg:hidden bg-slate-950 border-t border-slate-800 overflow-hidden shadow-2xl"
           >
-            <div className="px-3 py-4 space-y-1.5 max-h-[calc(100vh-80px)] overflow-y-auto">
+            <div className="px-4 py-4 space-y-1.5 max-h-[calc(100vh-80px)] overflow-y-auto">
               {navItems.map((item) => {
                 const active = isItemActive(item);
-                const mobileClasses = `flex items-center justify-between w-full py-3 px-3 font-medium rounded-lg transition-colors min-h-[44px] ${
+                const mobileClasses = `flex items-center justify-between w-full py-3 px-3.5 font-medium rounded-xl transition-colors min-h-[44px] ${
                   active
-                    ? 'bg-blue-50 text-blue-600 font-semibold'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                    ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-900'
                 }`;
 
                 if (item.type === 'scroll') {
@@ -201,7 +220,7 @@ export default function Navigation({
                       className={mobileClasses}
                     >
                       <span className="text-base">{item.label}</span>
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-5 h-5 text-slate-500" />
                     </button>
                   );
                 }
@@ -213,8 +232,15 @@ export default function Navigation({
                     className={mobileClasses}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span className="text-base">{item.label}</span>
-                    <ChevronRight className="w-5 h-5" />
+                    <span className="text-base flex items-center gap-2">
+                      {item.label}
+                      {item.badge && (
+                        <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">
+                          {item.badge}
+                        </span>
+                      )}
+                    </span>
+                    <ChevronRight className="w-5 h-5 text-slate-500" />
                   </Link>
                 );
               })}
@@ -222,9 +248,10 @@ export default function Navigation({
               <button
                 type="button"
                 onClick={() => navigateToSection('contact', 250)}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3.5 px-4 rounded-xl font-semibold hover:shadow-md transition-all duration-300 mt-3 flex items-center justify-center gap-2 min-h-[48px] text-base"
+                className="w-full bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 text-white py-3.5 px-4 rounded-xl font-semibold hover:shadow-md transition-all duration-300 mt-3 flex items-center justify-center gap-2 min-h-[48px] text-base"
               >
-                <span>Ücretsiz Danışmanlık</span>
+                <Terminal className="w-4 h-4" />
+                <span>Ücretsiz Proje Analizi</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
